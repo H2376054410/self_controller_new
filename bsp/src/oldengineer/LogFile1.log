@@ -1,0 +1,1019 @@
+Thu Jun 17, 2021 21:06:02: Breakpoint hit: Code @ cpuport.c:387.5, type: default (auto) 
+Thu Jun 17, 2021 21:06:02: HardFault exception.
+The processor has escalated a configurable-priority exception to HardFault.
+   A precise data access error has occurred (CFSR.PRECISERR, BFAR) at data address 0x2002c87c.
+
+Exception occured at PC = 0xffffffff, LR = 0x0
+
+See the call stack for more information.
+
+Thu Jun 17, 2021 21:07:34: Breakpoint hit: Code @ cpuport.c:387.5, type: default (auto) 
+Thu Jun 17, 2021 21:07:34: HardFault exception.
+The processor has escalated a configurable-priority exception to HardFault.
+   A precise data access error has occurred (CFSR.PRECISERR, BFAR) at data address 0x2002c87c.
+
+Exception occured at PC = 0xffffffff, LR = 0x0
+
+See the call stack for more information.
+
+Thu Jun 17, 2021 21:08:44: Failed to set breakpoint at 0x2002C87C (out of breakpoints?)
+Thu Jun 17, 2021 21:08:47: Failed to set breakpoint at 0x2002C87C (out of breakpoints?)
+Thu Jun 17, 2021 21:08:48: Failed to set breakpoint at 0x2002C87C (out of breakpoints?)
+Thu Jun 17, 2021 21:08:51: Failed to set breakpoint at 0x2002C87C (out of breakpoints?)
+Thu Jun 17, 2021 21:08:57: Breakpoint hit: Code @ cpuport.c:387.5, type: default (auto) 
+Thu Jun 17, 2021 21:08:57: HardFault exception.
+The processor has escalated a configurable-priority exception to HardFault.
+   A precise data access error has occurred (CFSR.PRECISERR, BFAR) at data address 0x2002c87c.
+
+Exception occured at PC = 0xffffffff, LR = 0x0
+
+See the call stack for more information.
+
+Thu Jun 17, 2021 21:09:00: Failed to set breakpoint at 0x2002C87C (out of breakpoints?)
+Thu Jun 17, 2021 21:10:17: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Thu Jun 17, 2021 21:10:17: Reset: Reset device via AIRCR.SYSRESETREQ.
+Thu Jun 17, 2021 21:10:17: Hardware reset with strategy 0 was performed
+Thu Jun 17, 2021 21:10:17: Target reset
+Thu Jun 17, 2021 21:10:29: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Thu Jun 17, 2021 21:10:29: Reset: Reset device via AIRCR.SYSRESETREQ.
+Thu Jun 17, 2021 21:10:29: Hardware reset with strategy 0 was performed
+Thu Jun 17, 2021 21:10:29: Target reset
+Thu Jun 17, 2021 21:10:35: Breakpoint hit: Code @ main.c:43.2, type: default (auto) 
+Thu Jun 17, 2021 21:16:13: HardFault exception.
+The processor has escalated a configurable-priority exception to HardFault.
+   A precise data access error has occurred (CFSR.PRECISERR, BFAR) at data address 0x2002c87c.
+
+Exception occured at PC = 0x80135f8, LR = 0x8013461
+
+See the call stack for more information.
+
+Thu Jun 17, 2021 21:16:59: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Thu Jun 17, 2021 21:16:59: Reset: Reset device via AIRCR.SYSRESETREQ.
+Thu Jun 17, 2021 21:16:59: Hardware reset with strategy 0 was performed
+Thu Jun 17, 2021 21:16:59: Target reset
+Thu Jun 17, 2021 21:17:03: HardFault exception.
+The processor has escalated a configurable-priority exception to HardFault.
+   A precise data access error has occurred (CFSR.PRECISERR, BFAR) at data address 0x2002c87c.
+
+Exception occured at PC = 0x80135f8, LR = 0x8013461
+
+See the call stack for more information.
+
+Thu Jun 17, 2021 21:17:21: Breakpoint hit: Code @ cpuport.c:387.5, type: default (auto) 
+Thu Jun 17, 2021 21:17:21: HardFault exception.
+The processor has escalated a configurable-priority exception to HardFault.
+   A precise data access error has occurred (CFSR.PRECISERR, BFAR) at data address 0x2002c87c.
+
+Exception occured at PC = 0x80135f8, LR = 0x8013461
+
+See the call stack for more information.
+
+Thu Jun 17, 2021 21:17:26: HardFault exception.
+The processor has escalated a configurable-priority exception to HardFault.
+   A precise data access error has occurred (CFSR.PRECISERR, BFAR) at data address 0x2002c87c.
+
+Exception occured at PC = 0x80135f8, LR = 0x8013461
+
+See the call stack for more information.
+
+Thu Jun 17, 2021 21:18:41: Breakpoint hit: Code @ cpuport.c:387.5, type: default (auto) 
+Thu Jun 17, 2021 21:18:41: HardFault exception.
+The processor has escalated a configurable-priority exception to HardFault.
+   A precise data access error has occurred (CFSR.PRECISERR, BFAR) at data address 0x2002c87c.
+
+Exception occured at PC = 0x80135f8, LR = 0x8013461
+
+See the call stack for more information.
+
+Thu Jun 17, 2021 21:18:46: Breakpoint hit: Code @ cpuport.c:387.5, type: default (auto) 
+Thu Jun 17, 2021 21:18:46: HardFault exception.
+The processor has escalated a configurable-priority exception to HardFault.
+   A precise data access error has occurred (CFSR.PRECISERR, BFAR) at data address 0x2002c87c.
+
+Exception occured at PC = 0x80135f8, LR = 0x8013461
+
+See the call stack for more information.
+
+Thu Jun 17, 2021 21:24:37: Breakpoint hit: Code @ cpuport.c:387.5, type: default (auto) 
+Thu Jun 17, 2021 21:24:37: HardFault exception.
+The processor has escalated a configurable-priority exception to HardFault.
+   A precise data access error has occurred (CFSR.PRECISERR, BFAR) at data address 0x2002c87c.
+
+Exception occured at PC = 0x80135f8, LR = 0x8013461
+
+See the call stack for more information.
+
+Thu Jun 17, 2021 21:25:20: HardFault exception.
+The processor has escalated a configurable-priority exception to HardFault.
+   A precise data access error has occurred (CFSR.PRECISERR, BFAR) at data address 0x2002c87c.
+
+Exception occured at PC = 0x80135f8, LR = 0x8013461
+
+See the call stack for more information.
+
+Thu Jun 17, 2021 21:29:03: Breakpoint hit: Code @ cpuport.c:387.5, type: default (auto) 
+Thu Jun 17, 2021 21:29:03: HardFault exception.
+The processor has escalated a configurable-priority exception to HardFault.
+   A precise data access error has occurred (CFSR.PRECISERR, BFAR) at data address 0x2002c87c.
+
+Exception occured at PC = 0x80135f8, LR = 0x8013461
+
+See the call stack for more information.
+
+Thu Jun 17, 2021 22:00:56: HardFault exception.
+The processor has escalated a configurable-priority exception to HardFault.
+   A precise data access error has occurred (CFSR.PRECISERR, BFAR) at data address 0x2002c87c.
+
+Exception occured at PC = 0x80135f8, LR = 0x8013461
+
+See the call stack for more information.
+
+
+
+ << Logging to file resumes >> 
+
+Thu Jun 17, 2021 22:08:23: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\ST\STM32F4xx.dmac
+Thu Jun 17, 2021 22:08:23: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Thu Jun 17, 2021 22:08:24: JLINK command: ProjectFile = D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\settings\project_rt-thread.jlink, return = 0
+
+Thu Jun 17, 2021 22:08:24: Device "STM32F407IG" selected.
+Thu Jun 17, 2021 22:08:24: DLL version: V6.34h, compiled Oct  9 2018 15:48:11
+
+Thu Jun 17, 2021 22:08:24: Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2106 11:15:54
+
+Thu Jun 17, 2021 22:08:24: Selecting SWD as current target interface.
+
+Thu Jun 17, 2021 22:08:24: JTAG speed is initially set to: 1000 kHz
+Thu Jun 17, 2021 22:08:24: Found SW-DP with ID 0x2BA01477
+Thu Jun 17, 2021 22:08:24: Found SW-DP with ID 0x2BA01477
+Thu Jun 17, 2021 22:08:24: Scanning AP map to find all available APs
+Thu Jun 17, 2021 22:08:24: AP[1]: Stopped AP scan as end of AP map has been reached
+Thu Jun 17, 2021 22:08:24: AP[0]: AHB-AP (IDR: 0x24770011)
+Thu Jun 17, 2021 22:08:24: Iterating through AP map to find AHB-AP to use
+Thu Jun 17, 2021 22:08:24: AP[0]: Core found
+Thu Jun 17, 2021 22:08:24: AP[0]: AHB-AP ROM base: 0xE00FF000
+Thu Jun 17, 2021 22:08:24: CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+Thu Jun 17, 2021 22:08:24: Found Cortex-M4 r0p1, Little endian.
+Thu Jun 17, 2021 22:08:24: FPUnit: 6 code (BP) slots and 2 literal slots
+Thu Jun 17, 2021 22:08:24: CoreSight components:
+Thu Jun 17, 2021 22:08:24: ROMTbl[0] @ E00FF000
+Thu Jun 17, 2021 22:08:24: ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+Thu Jun 17, 2021 22:08:24: ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+Thu Jun 17, 2021 22:08:24: ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+Thu Jun 17, 2021 22:08:24: ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+Thu Jun 17, 2021 22:08:24: ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+Thu Jun 17, 2021 22:08:24: ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+Thu Jun 17, 2021 22:08:24: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Thu Jun 17, 2021 22:08:24: Reset: Reset device via AIRCR.SYSRESETREQ.
+Thu Jun 17, 2021 22:08:24: Hardware reset with strategy 0 was performed
+Thu Jun 17, 2021 22:08:24: Initial reset was performed
+Thu Jun 17, 2021 22:08:24: 992 bytes downloaded (2.95 Kbytes/sec)
+Thu Jun 17, 2021 22:08:24: Loaded debugee: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxxRAM128K.out
+Thu Jun 17, 2021 22:08:24: Target reset
+Thu Jun 17, 2021 22:08:29: Unloaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Thu Jun 17, 2021 22:08:29: Downloaded D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out to flash memory.
+Thu Jun 17, 2021 22:08:29: 113045 bytes downloaded into FLASH (18.50 Kbytes/sec)
+
+
+ << Logging to file resumes >> 
+
+Thu Jun 17, 2021 22:10:34: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\ST\STM32F4xx.dmac
+Thu Jun 17, 2021 22:10:34: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Thu Jun 17, 2021 22:10:34: JLINK command: ProjectFile = D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\settings\project_rt-thread.jlink, return = 0
+
+Thu Jun 17, 2021 22:10:34: Device "STM32F407IG" selected.
+Thu Jun 17, 2021 22:10:34: DLL version: V6.34h, compiled Oct  9 2018 15:48:11
+
+Thu Jun 17, 2021 22:10:34: Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2106 11:15:54
+
+Thu Jun 17, 2021 22:10:34: Selecting SWD as current target interface.
+
+Thu Jun 17, 2021 22:10:34: JTAG speed is initially set to: 1000 kHz
+Thu Jun 17, 2021 22:10:34: Found SW-DP with ID 0x2BA01477
+Thu Jun 17, 2021 22:10:34: Found SW-DP with ID 0x2BA01477
+Thu Jun 17, 2021 22:10:34: Scanning AP map to find all available APs
+Thu Jun 17, 2021 22:10:34: AP[1]: Stopped AP scan as end of AP map has been reached
+Thu Jun 17, 2021 22:10:34: AP[0]: AHB-AP (IDR: 0x24770011)
+Thu Jun 17, 2021 22:10:34: Iterating through AP map to find AHB-AP to use
+Thu Jun 17, 2021 22:10:34: AP[0]: Core found
+Thu Jun 17, 2021 22:10:34: AP[0]: AHB-AP ROM base: 0xE00FF000
+Thu Jun 17, 2021 22:10:34: CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+Thu Jun 17, 2021 22:10:34: Found Cortex-M4 r0p1, Little endian.
+Thu Jun 17, 2021 22:10:34: FPUnit: 6 code (BP) slots and 2 literal slots
+Thu Jun 17, 2021 22:10:34: CoreSight components:
+Thu Jun 17, 2021 22:10:34: ROMTbl[0] @ E00FF000
+Thu Jun 17, 2021 22:10:34: ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+Thu Jun 17, 2021 22:10:34: ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+Thu Jun 17, 2021 22:10:34: ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+Thu Jun 17, 2021 22:10:34: ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+Thu Jun 17, 2021 22:10:34: ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+Thu Jun 17, 2021 22:10:34: ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+Thu Jun 17, 2021 22:10:34: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Thu Jun 17, 2021 22:10:34: Reset: Reset device via AIRCR.SYSRESETREQ.
+Thu Jun 17, 2021 22:10:34: Hardware reset with strategy 0 was performed
+Thu Jun 17, 2021 22:10:34: Initial reset was performed
+Thu Jun 17, 2021 22:10:35: 992 bytes downloaded (1.88 Kbytes/sec)
+Thu Jun 17, 2021 22:10:35: Loaded debugee: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxxRAM128K.out
+Thu Jun 17, 2021 22:10:35: Target reset
+Thu Jun 17, 2021 22:10:40: Unloaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Thu Jun 17, 2021 22:10:40: Downloaded D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out to flash memory.
+Thu Jun 17, 2021 22:10:40: 113045 bytes downloaded into FLASH (17.82 Kbytes/sec)
+Thu Jun 17, 2021 22:10:40: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Thu Jun 17, 2021 22:10:40: Reset: Reset device via AIRCR.SYSRESETREQ.
+Thu Jun 17, 2021 22:10:40: Hardware reset with strategy 0 was performed
+Thu Jun 17, 2021 22:10:43: 113045 bytes downloaded into FLASH (13.36 Kbytes/sec)
+Thu Jun 17, 2021 22:10:43: Loaded debugee: D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out
+Thu Jun 17, 2021 22:10:43: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Thu Jun 17, 2021 22:10:43: Reset: Reset device via AIRCR.SYSRESETREQ.
+Thu Jun 17, 2021 22:10:43: Hardware reset with strategy 0 was performed
+Thu Jun 17, 2021 22:10:43: Target reset
+
+
+ << Logging to file resumes >> 
+
+Thu Jun 17, 2021 22:22:07: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\ST\STM32F4xx.dmac
+Thu Jun 17, 2021 22:22:07: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Thu Jun 17, 2021 22:22:07: JLINK command: ProjectFile = D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\settings\project_rt-thread.jlink, return = 0
+
+Thu Jun 17, 2021 22:22:07: Device "STM32F407IG" selected.
+Thu Jun 17, 2021 22:22:07: DLL version: V6.34h, compiled Oct  9 2018 15:48:11
+
+Thu Jun 17, 2021 22:22:07: Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2106 11:15:54
+
+Thu Jun 17, 2021 22:22:07: Selecting SWD as current target interface.
+
+Thu Jun 17, 2021 22:22:07: JTAG speed is initially set to: 1000 kHz
+Thu Jun 17, 2021 22:22:07: Found SW-DP with ID 0x2BA01477
+Thu Jun 17, 2021 22:22:07: Found SW-DP with ID 0x2BA01477
+Thu Jun 17, 2021 22:22:07: Scanning AP map to find all available APs
+Thu Jun 17, 2021 22:22:07: AP[1]: Stopped AP scan as end of AP map has been reached
+Thu Jun 17, 2021 22:22:07: AP[0]: AHB-AP (IDR: 0x24770011)
+Thu Jun 17, 2021 22:22:07: Iterating through AP map to find AHB-AP to use
+Thu Jun 17, 2021 22:22:07: AP[0]: Core found
+Thu Jun 17, 2021 22:22:07: AP[0]: AHB-AP ROM base: 0xE00FF000
+Thu Jun 17, 2021 22:22:07: CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+Thu Jun 17, 2021 22:22:07: Found Cortex-M4 r0p1, Little endian.
+Thu Jun 17, 2021 22:22:07: FPUnit: 6 code (BP) slots and 2 literal slots
+Thu Jun 17, 2021 22:22:07: CoreSight components:
+Thu Jun 17, 2021 22:22:07: ROMTbl[0] @ E00FF000
+Thu Jun 17, 2021 22:22:07: ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+Thu Jun 17, 2021 22:22:07: ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+Thu Jun 17, 2021 22:22:07: ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+Thu Jun 17, 2021 22:22:07: ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+Thu Jun 17, 2021 22:22:07: ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+Thu Jun 17, 2021 22:22:07: ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+Thu Jun 17, 2021 22:22:07: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Thu Jun 17, 2021 22:22:07: Reset: Reset device via AIRCR.SYSRESETREQ.
+Thu Jun 17, 2021 22:22:07: Hardware reset with strategy 0 was performed
+Thu Jun 17, 2021 22:22:07: Initial reset was performed
+Thu Jun 17, 2021 22:22:08: 992 bytes downloaded (2.95 Kbytes/sec)
+Thu Jun 17, 2021 22:22:08: Loaded debugee: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxxRAM128K.out
+Thu Jun 17, 2021 22:22:08: Target reset
+Thu Jun 17, 2021 22:22:13: Unloaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Thu Jun 17, 2021 22:22:13: Downloaded D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out to flash memory.
+Thu Jun 17, 2021 22:22:13: 117880 bytes downloaded into FLASH (18.83 Kbytes/sec)
+Thu Jun 17, 2021 22:22:13: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Thu Jun 17, 2021 22:22:13: Reset: Reset device via AIRCR.SYSRESETREQ.
+Thu Jun 17, 2021 22:22:13: Hardware reset with strategy 0 was performed
+Thu Jun 17, 2021 22:22:14: 117880 bytes downloaded into FLASH (17.63 Kbytes/sec)
+Thu Jun 17, 2021 22:22:14: Loaded debugee: D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out
+Thu Jun 17, 2021 22:22:14: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Thu Jun 17, 2021 22:22:14: Reset: Reset device via AIRCR.SYSRESETREQ.
+Thu Jun 17, 2021 22:22:14: Hardware reset with strategy 0 was performed
+Thu Jun 17, 2021 22:22:14: Target reset
+Thu Jun 17, 2021 22:25:55: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Thu Jun 17, 2021 22:25:55: Reset: Reset device via AIRCR.SYSRESETREQ.
+Thu Jun 17, 2021 22:25:55: Hardware reset with strategy 0 was performed
+Thu Jun 17, 2021 22:25:55: Target reset
+
+
+ << Logging to file resumes >> 
+
+Fri Jun 18, 2021 19:25:55: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\ST\STM32F4xx.dmac
+Fri Jun 18, 2021 19:25:55: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Fri Jun 18, 2021 19:25:55: JLINK command: ProjectFile = D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\settings\project_rt-thread.jlink, return = 0
+
+Fri Jun 18, 2021 19:25:55: Device "STM32F407IG" selected.
+Fri Jun 18, 2021 19:25:55: DLL version: V6.34h, compiled Oct  9 2018 15:48:11
+
+Fri Jun 18, 2021 19:25:55: Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2106 11:15:54
+
+Fri Jun 18, 2021 19:25:55: Selecting SWD as current target interface.
+
+Fri Jun 18, 2021 19:25:55: JTAG speed is initially set to: 1000 kHz
+Fri Jun 18, 2021 19:25:55: Found SW-DP with ID 0x2BA01477
+Fri Jun 18, 2021 19:25:55: Found SW-DP with ID 0x2BA01477
+Fri Jun 18, 2021 19:25:55: Scanning AP map to find all available APs
+Fri Jun 18, 2021 19:25:55: AP[1]: Stopped AP scan as end of AP map has been reached
+Fri Jun 18, 2021 19:25:55: AP[0]: AHB-AP (IDR: 0x24770011)
+Fri Jun 18, 2021 19:25:55: Iterating through AP map to find AHB-AP to use
+Fri Jun 18, 2021 19:25:55: AP[0]: Core found
+Fri Jun 18, 2021 19:25:55: AP[0]: AHB-AP ROM base: 0xE00FF000
+Fri Jun 18, 2021 19:25:55: CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+Fri Jun 18, 2021 19:25:55: Found Cortex-M4 r0p1, Little endian.
+Fri Jun 18, 2021 19:25:55: FPUnit: 6 code (BP) slots and 2 literal slots
+Fri Jun 18, 2021 19:25:55: CoreSight components:
+Fri Jun 18, 2021 19:25:55: ROMTbl[0] @ E00FF000
+Fri Jun 18, 2021 19:25:55: ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+Fri Jun 18, 2021 19:25:55: ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+Fri Jun 18, 2021 19:25:55: ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+Fri Jun 18, 2021 19:25:55: ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+Fri Jun 18, 2021 19:25:55: ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+Fri Jun 18, 2021 19:25:55: ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+Fri Jun 18, 2021 19:25:55: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Fri Jun 18, 2021 19:25:55: Reset: Reset device via AIRCR.SYSRESETREQ.
+Fri Jun 18, 2021 19:25:55: Hardware reset with strategy 0 was performed
+Fri Jun 18, 2021 19:25:55: Initial reset was performed
+Fri Jun 18, 2021 19:25:55: 992 bytes downloaded (12.42 Kbytes/sec)
+Fri Jun 18, 2021 19:25:55: Loaded debugee: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxxRAM128K.out
+Fri Jun 18, 2021 19:25:55: Target reset
+Fri Jun 18, 2021 19:26:00: Unloaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Fri Jun 18, 2021 19:26:00: Downloaded D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out to flash memory.
+Fri Jun 18, 2021 19:26:00: 117935 bytes downloaded into FLASH (20.35 Kbytes/sec)
+
+
+ << Logging to file resumes >> 
+
+Fri Jun 18, 2021 20:47:29: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\ST\STM32F4xx.dmac
+Fri Jun 18, 2021 20:47:29: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Fri Jun 18, 2021 20:47:29: JLINK command: ProjectFile = D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\settings\project_rt-thread.jlink, return = 0
+
+Fri Jun 18, 2021 20:47:29: Device "STM32F407IG" selected.
+Fri Jun 18, 2021 20:47:29: DLL version: V6.34h, compiled Oct  9 2018 15:48:11
+
+Fri Jun 18, 2021 20:47:29: Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2106 11:15:54
+
+Fri Jun 18, 2021 20:47:29: Selecting SWD as current target interface.
+
+Fri Jun 18, 2021 20:47:29: JTAG speed is initially set to: 1000 kHz
+Fri Jun 18, 2021 20:47:29: Found SW-DP with ID 0x2BA01477
+Fri Jun 18, 2021 20:47:30: Found SW-DP with ID 0x2BA01477
+Fri Jun 18, 2021 20:47:30: Scanning AP map to find all available APs
+Fri Jun 18, 2021 20:47:30: AP[1]: Stopped AP scan as end of AP map has been reached
+Fri Jun 18, 2021 20:47:30: AP[0]: AHB-AP (IDR: 0x24770011)
+Fri Jun 18, 2021 20:47:30: Iterating through AP map to find AHB-AP to use
+Fri Jun 18, 2021 20:47:30: AP[0]: Core found
+Fri Jun 18, 2021 20:47:30: AP[0]: AHB-AP ROM base: 0xE00FF000
+Fri Jun 18, 2021 20:47:30: CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+Fri Jun 18, 2021 20:47:30: Found Cortex-M4 r0p1, Little endian.
+Fri Jun 18, 2021 20:47:30: FPUnit: 6 code (BP) slots and 2 literal slots
+Fri Jun 18, 2021 20:47:30: CoreSight components:
+Fri Jun 18, 2021 20:47:30: ROMTbl[0] @ E00FF000
+Fri Jun 18, 2021 20:47:30: ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+Fri Jun 18, 2021 20:47:30: ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+Fri Jun 18, 2021 20:47:30: ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+Fri Jun 18, 2021 20:47:30: ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+Fri Jun 18, 2021 20:47:30: ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+Fri Jun 18, 2021 20:47:30: ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+Fri Jun 18, 2021 20:47:30: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Fri Jun 18, 2021 20:47:30: Reset: Reset device via AIRCR.SYSRESETREQ.
+Fri Jun 18, 2021 20:47:30: Hardware reset with strategy 0 was performed
+Fri Jun 18, 2021 20:47:30: Initial reset was performed
+Fri Jun 18, 2021 20:47:30: 992 bytes downloaded (4.12 Kbytes/sec)
+Fri Jun 18, 2021 20:47:30: Loaded debugee: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxxRAM128K.out
+Fri Jun 18, 2021 20:47:30: Target reset
+Fri Jun 18, 2021 20:47:35: Unloaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Fri Jun 18, 2021 20:47:35: Downloaded D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out to flash memory.
+Fri Jun 18, 2021 20:47:35: 117935 bytes downloaded into FLASH (19.50 Kbytes/sec)
+Fri Jun 18, 2021 20:47:35: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Fri Jun 18, 2021 20:47:35: Reset: Reset device via AIRCR.SYSRESETREQ.
+Fri Jun 18, 2021 20:47:35: Hardware reset with strategy 0 was performed
+Fri Jun 18, 2021 20:47:37: 117935 bytes downloaded into FLASH (17.55 Kbytes/sec)
+Fri Jun 18, 2021 20:47:37: Loaded debugee: D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out
+Fri Jun 18, 2021 20:47:37: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Fri Jun 18, 2021 20:47:37: Reset: Reset device via AIRCR.SYSRESETREQ.
+Fri Jun 18, 2021 20:47:37: Hardware reset with strategy 0 was performed
+Fri Jun 18, 2021 20:47:37: Target reset
+Fri Jun 18, 2021 20:48:03: Breakpoint hit: Code @ mod_gimbal.c:84.3, type: default (auto) 
+
+
+ << Logging to file resumes >> 
+
+Tue Jun 22, 2021 13:53:46: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\ST\STM32F4xx.dmac
+Tue Jun 22, 2021 13:53:46: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 13:53:46: JLINK command: ProjectFile = D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\settings\project_rt-thread.jlink, return = 0
+
+Tue Jun 22, 2021 13:53:46: Device "STM32F407IG" selected.
+Tue Jun 22, 2021 13:53:46: DLL version: V6.34h, compiled Oct  9 2018 15:48:11
+
+Tue Jun 22, 2021 13:53:46: Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2106 11:15:54
+
+Tue Jun 22, 2021 13:53:46: Selecting SWD as current target interface.
+
+Tue Jun 22, 2021 13:53:46: JTAG speed is initially set to: 1000 kHz
+Tue Jun 22, 2021 13:53:46: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 13:53:46: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 13:53:46: Scanning AP map to find all available APs
+Tue Jun 22, 2021 13:53:46: AP[1]: Stopped AP scan as end of AP map has been reached
+Tue Jun 22, 2021 13:53:46: AP[0]: AHB-AP (IDR: 0x24770011)
+Tue Jun 22, 2021 13:53:46: Iterating through AP map to find AHB-AP to use
+Tue Jun 22, 2021 13:53:46: AP[0]: Core found
+Tue Jun 22, 2021 13:53:46: AP[0]: AHB-AP ROM base: 0xE00FF000
+Tue Jun 22, 2021 13:53:46: CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+Tue Jun 22, 2021 13:53:46: Found Cortex-M4 r0p1, Little endian.
+Tue Jun 22, 2021 13:53:46: FPUnit: 6 code (BP) slots and 2 literal slots
+Tue Jun 22, 2021 13:53:46: CoreSight components:
+Tue Jun 22, 2021 13:53:46: ROMTbl[0] @ E00FF000
+Tue Jun 22, 2021 13:53:46: ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+Tue Jun 22, 2021 13:53:46: ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+Tue Jun 22, 2021 13:53:46: ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+Tue Jun 22, 2021 13:53:46: ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+Tue Jun 22, 2021 13:53:46: ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+Tue Jun 22, 2021 13:53:46: ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+Tue Jun 22, 2021 13:53:46: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 13:53:46: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 13:53:46: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 13:53:46: Initial reset was performed
+Tue Jun 22, 2021 13:53:46: 992 bytes downloaded (7.75 Kbytes/sec)
+Tue Jun 22, 2021 13:53:46: Loaded debugee: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxxRAM128K.out
+Tue Jun 22, 2021 13:53:46: Target reset
+Tue Jun 22, 2021 13:53:51: Unloaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 13:53:51: Downloaded D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out to flash memory.
+Tue Jun 22, 2021 13:53:51: 117983 bytes downloaded into FLASH (20.20 Kbytes/sec)
+
+
+ << Logging to file resumes >> 
+
+Tue Jun 22, 2021 13:57:39: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\ST\STM32F4xx.dmac
+Tue Jun 22, 2021 13:57:39: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 13:57:39: JLINK command: ProjectFile = D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\settings\project_rt-thread.jlink, return = 0
+
+Tue Jun 22, 2021 13:57:39: Device "STM32F407IG" selected.
+Tue Jun 22, 2021 13:57:39: DLL version: V6.34h, compiled Oct  9 2018 15:48:11
+
+Tue Jun 22, 2021 13:57:39: Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2106 11:15:54
+
+Tue Jun 22, 2021 13:57:39: Selecting SWD as current target interface.
+
+Tue Jun 22, 2021 13:57:39: JTAG speed is initially set to: 1000 kHz
+Tue Jun 22, 2021 13:57:39: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 13:57:39: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 13:57:39: Scanning AP map to find all available APs
+Tue Jun 22, 2021 13:57:39: AP[1]: Stopped AP scan as end of AP map has been reached
+Tue Jun 22, 2021 13:57:39: AP[0]: AHB-AP (IDR: 0x24770011)
+Tue Jun 22, 2021 13:57:39: Iterating through AP map to find AHB-AP to use
+Tue Jun 22, 2021 13:57:39: AP[0]: Core found
+Tue Jun 22, 2021 13:57:39: AP[0]: AHB-AP ROM base: 0xE00FF000
+Tue Jun 22, 2021 13:57:39: CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+Tue Jun 22, 2021 13:57:39: Found Cortex-M4 r0p1, Little endian.
+Tue Jun 22, 2021 13:57:39: FPUnit: 6 code (BP) slots and 2 literal slots
+Tue Jun 22, 2021 13:57:39: CoreSight components:
+Tue Jun 22, 2021 13:57:39: ROMTbl[0] @ E00FF000
+Tue Jun 22, 2021 13:57:39: ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+Tue Jun 22, 2021 13:57:39: ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+Tue Jun 22, 2021 13:57:39: ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+Tue Jun 22, 2021 13:57:39: ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+Tue Jun 22, 2021 13:57:39: ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+Tue Jun 22, 2021 13:57:39: ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+Tue Jun 22, 2021 13:57:39: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 13:57:39: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 13:57:40: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 13:57:40: Initial reset was performed
+Tue Jun 22, 2021 13:57:40: 992 bytes downloaded (10.31 Kbytes/sec)
+Tue Jun 22, 2021 13:57:40: Loaded debugee: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxxRAM128K.out
+Tue Jun 22, 2021 13:57:40: Target reset
+Tue Jun 22, 2021 13:57:45: Unloaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 13:57:45: Downloaded D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out to flash memory.
+Tue Jun 22, 2021 13:57:45: 117991 bytes downloaded into FLASH (20.80 Kbytes/sec)
+
+
+ << Logging to file resumes >> 
+
+Tue Jun 22, 2021 15:28:15: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\ST\STM32F4xx.dmac
+Tue Jun 22, 2021 15:28:15: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 15:28:15: JLINK command: ProjectFile = D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\settings\project_rt-thread.jlink, return = 0
+
+Tue Jun 22, 2021 15:28:15: Device "STM32F407IG" selected.
+Tue Jun 22, 2021 15:28:15: DLL version: V6.34h, compiled Oct  9 2018 15:48:11
+
+Tue Jun 22, 2021 15:28:15: Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2106 11:15:54
+
+Tue Jun 22, 2021 15:28:15: Selecting SWD as current target interface.
+
+Tue Jun 22, 2021 15:28:15: JTAG speed is initially set to: 1000 kHz
+Tue Jun 22, 2021 15:28:15: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 15:28:15: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 15:28:15: Scanning AP map to find all available APs
+Tue Jun 22, 2021 15:28:15: AP[1]: Stopped AP scan as end of AP map has been reached
+Tue Jun 22, 2021 15:28:15: AP[0]: AHB-AP (IDR: 0x24770011)
+Tue Jun 22, 2021 15:28:15: Iterating through AP map to find AHB-AP to use
+Tue Jun 22, 2021 15:28:15: AP[0]: Core found
+Tue Jun 22, 2021 15:28:15: AP[0]: AHB-AP ROM base: 0xE00FF000
+Tue Jun 22, 2021 15:28:15: CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+Tue Jun 22, 2021 15:28:15: Found Cortex-M4 r0p1, Little endian.
+Tue Jun 22, 2021 15:28:15: FPUnit: 6 code (BP) slots and 2 literal slots
+Tue Jun 22, 2021 15:28:15: CoreSight components:
+Tue Jun 22, 2021 15:28:15: ROMTbl[0] @ E00FF000
+Tue Jun 22, 2021 15:28:16: ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+Tue Jun 22, 2021 15:28:16: ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+Tue Jun 22, 2021 15:28:16: ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+Tue Jun 22, 2021 15:28:16: ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+Tue Jun 22, 2021 15:28:16: ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+Tue Jun 22, 2021 15:28:16: ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+Tue Jun 22, 2021 15:28:16: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 15:28:16: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 15:28:16: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 15:28:16: Initial reset was performed
+Tue Jun 22, 2021 15:28:16: 992 bytes downloaded (8.81 Kbytes/sec)
+Tue Jun 22, 2021 15:28:16: Loaded debugee: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxxRAM128K.out
+Tue Jun 22, 2021 15:28:16: Target reset
+Tue Jun 22, 2021 15:28:21: Unloaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 15:28:21: Downloaded D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out to flash memory.
+Tue Jun 22, 2021 15:28:21: 117991 bytes downloaded into FLASH (20.38 Kbytes/sec)
+Tue Jun 22, 2021 15:28:21: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 15:28:21: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 15:28:21: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 15:28:22: 117991 bytes downloaded into FLASH (18.07 Kbytes/sec)
+Tue Jun 22, 2021 15:28:22: Loaded debugee: D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out
+Tue Jun 22, 2021 15:28:22: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 15:28:22: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 15:28:22: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 15:28:22: Target reset
+Tue Jun 22, 2021 15:28:22: Failed to enable illegal breakpoint definition '{D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\applications\APP\can_receive.c}.66.4'
+Tue Jun 22, 2021 15:28:22: One or more breakpoints could not be set and have been disabled.
+Tue Jun 22, 2021 15:28:25: There was 1 warning during the initialization of the debugging session.
+
+
+ << Logging to file resumes >> 
+
+Tue Jun 22, 2021 15:46:46: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\ST\STM32F4xx.dmac
+Tue Jun 22, 2021 15:46:46: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 15:46:46: JLINK command: ProjectFile = D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\settings\project_rt-thread.jlink, return = 0
+
+Tue Jun 22, 2021 15:46:46: Device "STM32F407IG" selected.
+Tue Jun 22, 2021 15:46:46: DLL version: V6.34h, compiled Oct  9 2018 15:48:11
+
+Tue Jun 22, 2021 15:46:46: Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2106 11:15:54
+
+Tue Jun 22, 2021 15:46:46: Selecting SWD as current target interface.
+
+Tue Jun 22, 2021 15:46:46: JTAG speed is initially set to: 1000 kHz
+Tue Jun 22, 2021 15:46:46: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 15:46:46: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 15:46:46: Scanning AP map to find all available APs
+Tue Jun 22, 2021 15:46:46: AP[1]: Stopped AP scan as end of AP map has been reached
+Tue Jun 22, 2021 15:46:46: AP[0]: AHB-AP (IDR: 0x24770011)
+Tue Jun 22, 2021 15:46:46: Iterating through AP map to find AHB-AP to use
+Tue Jun 22, 2021 15:46:46: AP[0]: Core found
+Tue Jun 22, 2021 15:46:46: AP[0]: AHB-AP ROM base: 0xE00FF000
+Tue Jun 22, 2021 15:46:46: CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+Tue Jun 22, 2021 15:46:46: Found Cortex-M4 r0p1, Little endian.
+Tue Jun 22, 2021 15:46:46: FPUnit: 6 code (BP) slots and 2 literal slots
+Tue Jun 22, 2021 15:46:46: CoreSight components:
+Tue Jun 22, 2021 15:46:46: ROMTbl[0] @ E00FF000
+Tue Jun 22, 2021 15:46:46: ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+Tue Jun 22, 2021 15:46:46: ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+Tue Jun 22, 2021 15:46:46: ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+Tue Jun 22, 2021 15:46:46: ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+Tue Jun 22, 2021 15:46:46: ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+Tue Jun 22, 2021 15:46:46: ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+Tue Jun 22, 2021 15:46:46: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 15:46:46: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 15:46:46: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 15:46:46: Initial reset was performed
+Tue Jun 22, 2021 15:47:05: Fatal error: Failed to read CPUID for Cortex device   Session aborted!
+Tue Jun 22, 2021 15:47:05: Unloaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+
+
+ << Logging to file resumes >> 
+
+Tue Jun 22, 2021 15:47:14: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\ST\STM32F4xx.dmac
+Tue Jun 22, 2021 15:47:14: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 15:47:15: JLINK command: ProjectFile = D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\settings\project_rt-thread.jlink, return = 0
+
+Tue Jun 22, 2021 15:47:15: Device "STM32F407IG" selected.
+Tue Jun 22, 2021 15:47:15: DLL version: V6.34h, compiled Oct  9 2018 15:48:11
+
+Tue Jun 22, 2021 15:47:15: Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2106 11:15:54
+
+Tue Jun 22, 2021 15:47:15: Selecting SWD as current target interface.
+
+Tue Jun 22, 2021 15:47:15: JTAG speed is initially set to: 1000 kHz
+Tue Jun 22, 2021 15:47:15: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 15:47:15: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 15:47:15: Scanning AP map to find all available APs
+Tue Jun 22, 2021 15:47:15: AP[1]: Stopped AP scan as end of AP map has been reached
+Tue Jun 22, 2021 15:47:15: AP[0]: AHB-AP (IDR: 0x24770011)
+Tue Jun 22, 2021 15:47:15: Iterating through AP map to find AHB-AP to use
+Tue Jun 22, 2021 15:47:15: AP[0]: Core found
+Tue Jun 22, 2021 15:47:15: AP[0]: AHB-AP ROM base: 0xE00FF000
+Tue Jun 22, 2021 15:47:15: CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+Tue Jun 22, 2021 15:47:15: Found Cortex-M4 r0p1, Little endian.
+Tue Jun 22, 2021 15:47:15: FPUnit: 6 code (BP) slots and 2 literal slots
+Tue Jun 22, 2021 15:47:15: CoreSight components:
+Tue Jun 22, 2021 15:47:15: ROMTbl[0] @ E00FF000
+Tue Jun 22, 2021 15:47:15: ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+Tue Jun 22, 2021 15:47:15: ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+Tue Jun 22, 2021 15:47:15: ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+Tue Jun 22, 2021 15:47:15: ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+Tue Jun 22, 2021 15:47:15: ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+Tue Jun 22, 2021 15:47:15: ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+Tue Jun 22, 2021 15:47:15: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 15:47:15: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 15:47:15: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 15:47:15: Initial reset was performed
+Tue Jun 22, 2021 15:47:15: 992 bytes downloaded (7.75 Kbytes/sec)
+Tue Jun 22, 2021 15:47:15: Loaded debugee: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxxRAM128K.out
+Tue Jun 22, 2021 15:47:15: Target reset
+Tue Jun 22, 2021 15:47:20: Unloaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 15:47:20: Downloaded D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out to flash memory.
+Tue Jun 22, 2021 15:47:20: 118003 bytes downloaded into FLASH (20.31 Kbytes/sec)
+Tue Jun 22, 2021 15:47:20: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 15:47:20: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 15:47:20: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 15:47:22: 118003 bytes downloaded into FLASH (16.21 Kbytes/sec)
+Tue Jun 22, 2021 15:47:22: Loaded debugee: D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out
+Tue Jun 22, 2021 15:47:22: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 15:47:22: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 15:47:22: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 15:47:22: Target reset
+
+
+ << Logging to file resumes >> 
+
+Tue Jun 22, 2021 15:49:56: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\ST\STM32F4xx.dmac
+Tue Jun 22, 2021 15:49:56: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 15:49:56: JLINK command: ProjectFile = D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\settings\project_rt-thread.jlink, return = 0
+
+Tue Jun 22, 2021 15:49:56: Device "STM32F407IG" selected.
+Tue Jun 22, 2021 15:49:56: DLL version: V6.34h, compiled Oct  9 2018 15:48:11
+
+Tue Jun 22, 2021 15:49:56: Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2106 11:15:54
+
+Tue Jun 22, 2021 15:49:56: Selecting SWD as current target interface.
+
+Tue Jun 22, 2021 15:49:56: JTAG speed is initially set to: 1000 kHz
+Tue Jun 22, 2021 15:49:56: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 15:49:56: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 15:49:56: Scanning AP map to find all available APs
+Tue Jun 22, 2021 15:49:56: AP[1]: Stopped AP scan as end of AP map has been reached
+Tue Jun 22, 2021 15:49:56: AP[0]: AHB-AP (IDR: 0x24770011)
+Tue Jun 22, 2021 15:49:56: Iterating through AP map to find AHB-AP to use
+Tue Jun 22, 2021 15:49:56: AP[0]: Core found
+Tue Jun 22, 2021 15:49:56: AP[0]: AHB-AP ROM base: 0xE00FF000
+Tue Jun 22, 2021 15:49:56: CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+Tue Jun 22, 2021 15:49:56: Found Cortex-M4 r0p1, Little endian.
+Tue Jun 22, 2021 15:49:56: FPUnit: 6 code (BP) slots and 2 literal slots
+Tue Jun 22, 2021 15:49:56: CoreSight components:
+Tue Jun 22, 2021 15:49:56: ROMTbl[0] @ E00FF000
+Tue Jun 22, 2021 15:49:56: ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+Tue Jun 22, 2021 15:49:56: ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+Tue Jun 22, 2021 15:49:56: ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+Tue Jun 22, 2021 15:49:56: ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+Tue Jun 22, 2021 15:49:56: ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+Tue Jun 22, 2021 15:49:56: ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+Tue Jun 22, 2021 15:49:56: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 15:49:56: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 15:49:57: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 15:49:57: Initial reset was performed
+Tue Jun 22, 2021 15:49:57: 992 bytes downloaded (3.88 Kbytes/sec)
+Tue Jun 22, 2021 15:49:57: Loaded debugee: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxxRAM128K.out
+Tue Jun 22, 2021 15:49:57: Target reset
+Tue Jun 22, 2021 15:50:02: Unloaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 15:50:02: Downloaded D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out to flash memory.
+Tue Jun 22, 2021 15:50:02: 118003 bytes downloaded into FLASH (19.90 Kbytes/sec)
+Tue Jun 22, 2021 15:50:02: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 15:50:02: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 15:50:02: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 15:50:04: 118003 bytes downloaded into FLASH (17.69 Kbytes/sec)
+Tue Jun 22, 2021 15:50:04: Loaded debugee: D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out
+Tue Jun 22, 2021 15:50:04: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 15:50:04: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 15:50:04: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 15:50:04: Target reset
+
+
+ << Logging to file resumes >> 
+
+Tue Jun 22, 2021 15:56:35: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\ST\STM32F4xx.dmac
+Tue Jun 22, 2021 15:56:35: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 15:56:35: JLINK command: ProjectFile = D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\settings\project_rt-thread.jlink, return = 0
+
+Tue Jun 22, 2021 15:56:35: Device "STM32F407IG" selected.
+Tue Jun 22, 2021 15:56:35: DLL version: V6.34h, compiled Oct  9 2018 15:48:11
+
+Tue Jun 22, 2021 15:56:35: Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2106 11:15:54
+
+Tue Jun 22, 2021 15:56:35: Selecting SWD as current target interface.
+
+Tue Jun 22, 2021 15:56:35: JTAG speed is initially set to: 1000 kHz
+Tue Jun 22, 2021 15:56:35: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 15:56:35: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 15:56:35: Scanning AP map to find all available APs
+Tue Jun 22, 2021 15:56:35: AP[1]: Stopped AP scan as end of AP map has been reached
+Tue Jun 22, 2021 15:56:35: AP[0]: AHB-AP (IDR: 0x24770011)
+Tue Jun 22, 2021 15:56:35: Iterating through AP map to find AHB-AP to use
+Tue Jun 22, 2021 15:56:35: AP[0]: Core found
+Tue Jun 22, 2021 15:56:35: AP[0]: AHB-AP ROM base: 0xE00FF000
+Tue Jun 22, 2021 15:56:35: CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+Tue Jun 22, 2021 15:56:35: Found Cortex-M4 r0p1, Little endian.
+Tue Jun 22, 2021 15:56:35: FPUnit: 6 code (BP) slots and 2 literal slots
+Tue Jun 22, 2021 15:56:35: CoreSight components:
+Tue Jun 22, 2021 15:56:35: ROMTbl[0] @ E00FF000
+Tue Jun 22, 2021 15:56:35: ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+Tue Jun 22, 2021 15:56:35: ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+Tue Jun 22, 2021 15:56:35: ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+Tue Jun 22, 2021 15:56:35: ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+Tue Jun 22, 2021 15:56:35: ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+Tue Jun 22, 2021 15:56:35: ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+Tue Jun 22, 2021 15:56:35: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 15:56:35: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 15:56:35: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 15:56:35: Initial reset was performed
+Tue Jun 22, 2021 15:56:36: 992 bytes downloaded (10.31 Kbytes/sec)
+Tue Jun 22, 2021 15:56:36: Loaded debugee: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxxRAM128K.out
+Tue Jun 22, 2021 15:56:36: Target reset
+Tue Jun 22, 2021 15:56:41: Unloaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 15:56:41: Downloaded D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out to flash memory.
+Tue Jun 22, 2021 15:56:41: 118015 bytes downloaded into FLASH (20.45 Kbytes/sec)
+Tue Jun 22, 2021 15:56:41: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 15:56:41: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 15:56:41: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 15:56:43: 118015 bytes downloaded into FLASH (16.54 Kbytes/sec)
+Tue Jun 22, 2021 15:56:43: Loaded debugee: D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out
+Tue Jun 22, 2021 15:56:43: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 15:56:43: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 15:56:43: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 15:56:43: Target reset
+
+
+ << Logging to file resumes >> 
+
+Tue Jun 22, 2021 16:01:49: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\ST\STM32F4xx.dmac
+Tue Jun 22, 2021 16:01:49: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 16:01:49: JLINK command: ProjectFile = D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\settings\project_rt-thread.jlink, return = 0
+
+Tue Jun 22, 2021 16:01:49: Device "STM32F407IG" selected.
+Tue Jun 22, 2021 16:01:49: DLL version: V6.34h, compiled Oct  9 2018 15:48:11
+
+Tue Jun 22, 2021 16:01:49: Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2106 11:15:54
+
+Tue Jun 22, 2021 16:01:49: Selecting SWD as current target interface.
+
+Tue Jun 22, 2021 16:01:49: JTAG speed is initially set to: 1000 kHz
+Tue Jun 22, 2021 16:01:49: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 16:01:49: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 16:01:49: Scanning AP map to find all available APs
+Tue Jun 22, 2021 16:01:49: AP[1]: Stopped AP scan as end of AP map has been reached
+Tue Jun 22, 2021 16:01:49: AP[0]: AHB-AP (IDR: 0x24770011)
+Tue Jun 22, 2021 16:01:49: Iterating through AP map to find AHB-AP to use
+Tue Jun 22, 2021 16:01:49: AP[0]: Core found
+Tue Jun 22, 2021 16:01:49: AP[0]: AHB-AP ROM base: 0xE00FF000
+Tue Jun 22, 2021 16:01:49: CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+Tue Jun 22, 2021 16:01:49: Found Cortex-M4 r0p1, Little endian.
+Tue Jun 22, 2021 16:01:49: FPUnit: 6 code (BP) slots and 2 literal slots
+Tue Jun 22, 2021 16:01:49: CoreSight components:
+Tue Jun 22, 2021 16:01:49: ROMTbl[0] @ E00FF000
+Tue Jun 22, 2021 16:01:49: ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+Tue Jun 22, 2021 16:01:49: ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+Tue Jun 22, 2021 16:01:49: ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+Tue Jun 22, 2021 16:01:49: ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+Tue Jun 22, 2021 16:01:49: ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+Tue Jun 22, 2021 16:01:49: ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+Tue Jun 22, 2021 16:01:49: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 16:01:49: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 16:01:49: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 16:01:49: Initial reset was performed
+Tue Jun 22, 2021 16:01:49: 992 bytes downloaded (12.26 Kbytes/sec)
+Tue Jun 22, 2021 16:01:49: Loaded debugee: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxxRAM128K.out
+Tue Jun 22, 2021 16:01:49: Target reset
+Tue Jun 22, 2021 16:01:54: Unloaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 16:01:54: Downloaded D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out to flash memory.
+Tue Jun 22, 2021 16:01:54: 118075 bytes downloaded into FLASH (20.41 Kbytes/sec)
+Tue Jun 22, 2021 16:01:54: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 16:01:54: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 16:01:54: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 16:01:56: 118075 bytes downloaded into FLASH (17.83 Kbytes/sec)
+Tue Jun 22, 2021 16:01:56: Loaded debugee: D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out
+Tue Jun 22, 2021 16:01:56: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 16:01:56: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 16:01:56: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 16:01:56: Target reset
+
+
+ << Logging to file resumes >> 
+
+Tue Jun 22, 2021 17:02:53: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\ST\STM32F4xx.dmac
+Tue Jun 22, 2021 17:02:53: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 17:02:54: JLINK command: ProjectFile = D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\settings\project_rt-thread.jlink, return = 0
+
+Tue Jun 22, 2021 17:02:54: Device "STM32F407IG" selected.
+Tue Jun 22, 2021 17:02:54: DLL version: V6.34h, compiled Oct  9 2018 15:48:11
+
+Tue Jun 22, 2021 17:02:54: Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2106 11:15:54
+
+Tue Jun 22, 2021 17:02:54: Selecting SWD as current target interface.
+
+Tue Jun 22, 2021 17:02:54: JTAG speed is initially set to: 1000 kHz
+Tue Jun 22, 2021 17:02:54: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 17:02:54: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 17:02:54: Scanning AP map to find all available APs
+Tue Jun 22, 2021 17:02:54: AP[1]: Stopped AP scan as end of AP map has been reached
+Tue Jun 22, 2021 17:02:54: AP[0]: AHB-AP (IDR: 0x24770011)
+Tue Jun 22, 2021 17:02:54: Iterating through AP map to find AHB-AP to use
+Tue Jun 22, 2021 17:02:54: AP[0]: Core found
+Tue Jun 22, 2021 17:02:54: AP[0]: AHB-AP ROM base: 0xE00FF000
+Tue Jun 22, 2021 17:02:54: CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+Tue Jun 22, 2021 17:02:54: Found Cortex-M4 r0p1, Little endian.
+Tue Jun 22, 2021 17:02:54: FPUnit: 6 code (BP) slots and 2 literal slots
+Tue Jun 22, 2021 17:02:54: CoreSight components:
+Tue Jun 22, 2021 17:02:54: ROMTbl[0] @ E00FF000
+Tue Jun 22, 2021 17:02:54: ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+Tue Jun 22, 2021 17:02:54: ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+Tue Jun 22, 2021 17:02:54: ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+Tue Jun 22, 2021 17:02:54: ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+Tue Jun 22, 2021 17:02:54: ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+Tue Jun 22, 2021 17:02:54: ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+Tue Jun 22, 2021 17:02:54: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 17:02:54: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 17:02:54: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 17:02:54: Initial reset was performed
+Tue Jun 22, 2021 17:02:54: 992 bytes downloaded (12.42 Kbytes/sec)
+Tue Jun 22, 2021 17:02:54: Loaded debugee: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxxRAM128K.out
+Tue Jun 22, 2021 17:02:54: Target reset
+Tue Jun 22, 2021 17:02:59: Unloaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 17:02:59: Downloaded D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out to flash memory.
+Tue Jun 22, 2021 17:02:59: 118064 bytes downloaded into FLASH (20.29 Kbytes/sec)
+
+
+ << Logging to file resumes >> 
+
+Tue Jun 22, 2021 21:56:51: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\ST\STM32F4xx.dmac
+Tue Jun 22, 2021 21:56:51: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 21:56:51: JLINK command: ProjectFile = D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\settings\project_rt-thread.jlink, return = 0
+
+Tue Jun 22, 2021 21:56:51: Device "STM32F407IG" selected.
+Tue Jun 22, 2021 21:56:51: DLL version: V6.34h, compiled Oct  9 2018 15:48:11
+
+Tue Jun 22, 2021 21:56:51: Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2106 11:15:54
+
+Tue Jun 22, 2021 21:56:51: Selecting SWD as current target interface.
+
+Tue Jun 22, 2021 21:56:51: JTAG speed is initially set to: 1000 kHz
+Tue Jun 22, 2021 21:56:51: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 21:56:51: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 21:56:51: Scanning AP map to find all available APs
+Tue Jun 22, 2021 21:56:51: AP[1]: Stopped AP scan as end of AP map has been reached
+Tue Jun 22, 2021 21:56:51: AP[0]: AHB-AP (IDR: 0x24770011)
+Tue Jun 22, 2021 21:56:51: Iterating through AP map to find AHB-AP to use
+Tue Jun 22, 2021 21:56:51: AP[0]: Core found
+Tue Jun 22, 2021 21:56:51: AP[0]: AHB-AP ROM base: 0xE00FF000
+Tue Jun 22, 2021 21:56:51: CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+Tue Jun 22, 2021 21:56:51: Found Cortex-M4 r0p1, Little endian.
+Tue Jun 22, 2021 21:56:51: FPUnit: 6 code (BP) slots and 2 literal slots
+Tue Jun 22, 2021 21:56:51: CoreSight components:
+Tue Jun 22, 2021 21:56:51: ROMTbl[0] @ E00FF000
+Tue Jun 22, 2021 21:56:51: ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+Tue Jun 22, 2021 21:56:51: ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+Tue Jun 22, 2021 21:56:51: ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+Tue Jun 22, 2021 21:56:51: ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+Tue Jun 22, 2021 21:56:51: ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+Tue Jun 22, 2021 21:56:51: ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+Tue Jun 22, 2021 21:56:51: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 21:56:51: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 21:56:51: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 21:56:51: Initial reset was performed
+Tue Jun 22, 2021 21:56:51: 992 bytes downloaded (12.42 Kbytes/sec)
+Tue Jun 22, 2021 21:56:51: Loaded debugee: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxxRAM128K.out
+Tue Jun 22, 2021 21:56:51: Target reset
+Tue Jun 22, 2021 21:56:56: Unloaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 21:56:56: Downloaded D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out to flash memory.
+Tue Jun 22, 2021 21:56:56: 117967 bytes downloaded into FLASH (20.81 Kbytes/sec)
+Tue Jun 22, 2021 21:56:56: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 21:56:56: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 21:56:56: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 21:56:57: 117967 bytes downloaded into FLASH (19.40 Kbytes/sec)
+Tue Jun 22, 2021 21:56:57: Loaded debugee: D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out
+Tue Jun 22, 2021 21:56:57: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 21:56:57: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 21:56:57: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 21:56:57: Target reset
+Tue Jun 22, 2021 21:59:25: Breakpoint hit: Code @ can_receive.c:18.13, type: default (auto) 
+
+
+ << Logging to file resumes >> 
+
+Tue Jun 22, 2021 22:03:57: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\ST\STM32F4xx.dmac
+Tue Jun 22, 2021 22:03:57: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 22:03:57: JLINK command: ProjectFile = D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\settings\project_rt-thread.jlink, return = 0
+
+Tue Jun 22, 2021 22:03:57: Device "STM32F407IG" selected.
+Tue Jun 22, 2021 22:03:57: DLL version: V6.34h, compiled Oct  9 2018 15:48:11
+
+Tue Jun 22, 2021 22:03:57: Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2106 11:15:54
+
+Tue Jun 22, 2021 22:03:57: Selecting SWD as current target interface.
+
+Tue Jun 22, 2021 22:03:57: JTAG speed is initially set to: 1000 kHz
+Tue Jun 22, 2021 22:03:57: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 22:03:57: Found SW-DP with ID 0x2BA01477
+Tue Jun 22, 2021 22:03:57: Scanning AP map to find all available APs
+Tue Jun 22, 2021 22:03:57: AP[1]: Stopped AP scan as end of AP map has been reached
+Tue Jun 22, 2021 22:03:57: AP[0]: AHB-AP (IDR: 0x24770011)
+Tue Jun 22, 2021 22:03:57: Iterating through AP map to find AHB-AP to use
+Tue Jun 22, 2021 22:03:57: AP[0]: Core found
+Tue Jun 22, 2021 22:03:57: AP[0]: AHB-AP ROM base: 0xE00FF000
+Tue Jun 22, 2021 22:03:57: CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+Tue Jun 22, 2021 22:03:57: Found Cortex-M4 r0p1, Little endian.
+Tue Jun 22, 2021 22:03:57: FPUnit: 6 code (BP) slots and 2 literal slots
+Tue Jun 22, 2021 22:03:57: CoreSight components:
+Tue Jun 22, 2021 22:03:57: ROMTbl[0] @ E00FF000
+Tue Jun 22, 2021 22:03:57: ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+Tue Jun 22, 2021 22:03:57: ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+Tue Jun 22, 2021 22:03:57: ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+Tue Jun 22, 2021 22:03:57: ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+Tue Jun 22, 2021 22:03:57: ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+Tue Jun 22, 2021 22:03:57: ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+Tue Jun 22, 2021 22:03:57: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 22:03:57: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 22:03:57: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 22:03:57: Initial reset was performed
+Tue Jun 22, 2021 22:03:58: 992 bytes downloaded (12.42 Kbytes/sec)
+Tue Jun 22, 2021 22:03:58: Loaded debugee: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxxRAM128K.out
+Tue Jun 22, 2021 22:03:58: Target reset
+Tue Jun 22, 2021 22:04:03: Unloaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Tue Jun 22, 2021 22:04:03: Downloaded D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out to flash memory.
+Tue Jun 22, 2021 22:04:03: 117967 bytes downloaded into FLASH (20.84 Kbytes/sec)
+Tue Jun 22, 2021 22:04:03: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 22:04:03: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 22:04:03: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 22:04:03: 117967 bytes downloaded into FLASH (19.40 Kbytes/sec)
+Tue Jun 22, 2021 22:04:03: Loaded debugee: D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out
+Tue Jun 22, 2021 22:04:03: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Tue Jun 22, 2021 22:04:03: Reset: Reset device via AIRCR.SYSRESETREQ.
+Tue Jun 22, 2021 22:04:04: Hardware reset with strategy 0 was performed
+Tue Jun 22, 2021 22:04:04: Target reset
+Tue Jun 22, 2021 22:08:17: Breakpoint hit: Code @ can_receive.c:36.13, type: default (auto) 
+
+
+ << Logging to file resumes >> 
+
+Wed Jun 23, 2021 11:09:31: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\ST\STM32F4xx.dmac
+Wed Jun 23, 2021 11:09:31: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Wed Jun 23, 2021 11:09:31: Warning: Out of sync , resynchronizing...
+Wed Jun 23, 2021 11:09:57: Warning: Out of sync , resynchronizing...
+Wed Jun 23, 2021 11:09:57: Warning: Out of sync , resynchronizing...
+Wed Jun 23, 2021 11:09:59: Fatal error: Cannot connect to J-Link via USB.   Session aborted!
+Wed Jun 23, 2021 11:09:59: Unloaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+
+
+ << Logging to file resumes >> 
+
+Wed Jun 23, 2021 11:10:21: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\ST\STM32F4xx.dmac
+Wed Jun 23, 2021 11:10:21: Loaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Wed Jun 23, 2021 11:10:21: JLINK command: ProjectFile = D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\settings\project_rt-thread.jlink, return = 0
+
+Wed Jun 23, 2021 11:10:21: Device "STM32F407IG" selected.
+Wed Jun 23, 2021 11:10:21: DLL version: V6.34h, compiled Oct  9 2018 15:48:11
+
+Wed Jun 23, 2021 11:10:21: Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2106 11:15:54
+
+Wed Jun 23, 2021 11:10:21: Selecting SWD as current target interface.
+
+Wed Jun 23, 2021 11:10:21: JTAG speed is initially set to: 1000 kHz
+Wed Jun 23, 2021 11:10:21: Found SW-DP with ID 0x2BA01477
+Wed Jun 23, 2021 11:10:21: Found SW-DP with ID 0x2BA01477
+Wed Jun 23, 2021 11:10:21: Scanning AP map to find all available APs
+Wed Jun 23, 2021 11:10:21: AP[1]: Stopped AP scan as end of AP map has been reached
+Wed Jun 23, 2021 11:10:21: AP[0]: AHB-AP (IDR: 0x24770011)
+Wed Jun 23, 2021 11:10:21: Iterating through AP map to find AHB-AP to use
+Wed Jun 23, 2021 11:10:21: AP[0]: Core found
+Wed Jun 23, 2021 11:10:21: AP[0]: AHB-AP ROM base: 0xE00FF000
+Wed Jun 23, 2021 11:10:21: CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+Wed Jun 23, 2021 11:10:21: Found Cortex-M4 r0p1, Little endian.
+Wed Jun 23, 2021 11:10:21: FPUnit: 6 code (BP) slots and 2 literal slots
+Wed Jun 23, 2021 11:10:21: CoreSight components:
+Wed Jun 23, 2021 11:10:21: ROMTbl[0] @ E00FF000
+Wed Jun 23, 2021 11:10:21: ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+Wed Jun 23, 2021 11:10:21: ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+Wed Jun 23, 2021 11:10:21: ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+Wed Jun 23, 2021 11:10:21: ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+Wed Jun 23, 2021 11:10:21: ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+Wed Jun 23, 2021 11:10:21: ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+Wed Jun 23, 2021 11:10:21: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Wed Jun 23, 2021 11:10:21: Reset: Reset device via AIRCR.SYSRESETREQ.
+Wed Jun 23, 2021 11:10:21: Hardware reset with strategy 0 was performed
+Wed Jun 23, 2021 11:10:21: Initial reset was performed
+Wed Jun 23, 2021 11:10:21: 992 bytes downloaded (12.42 Kbytes/sec)
+Wed Jun 23, 2021 11:10:21: Loaded debugee: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxxRAM128K.out
+Wed Jun 23, 2021 11:10:21: Target reset
+Wed Jun 23, 2021 11:10:26: Unloaded macro file: C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\ST\FlashSTM32F4xxx.mac
+Wed Jun 23, 2021 11:10:26: Downloaded D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out to flash memory.
+Wed Jun 23, 2021 11:10:26: 117967 bytes downloaded into FLASH (20.75 Kbytes/sec)
+Wed Jun 23, 2021 11:10:26: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Wed Jun 23, 2021 11:10:26: Reset: Reset device via AIRCR.SYSRESETREQ.
+Wed Jun 23, 2021 11:10:27: Hardware reset with strategy 0 was performed
+Wed Jun 23, 2021 11:10:27: 117967 bytes downloaded into FLASH (19.10 Kbytes/sec)
+Wed Jun 23, 2021 11:10:27: Loaded debugee: D:\RM\RTT\rt-thread-4.0.2\bsp\RM_STM32\RM2021EC\build\iar\Exe\project.out
+Wed Jun 23, 2021 11:10:27: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Wed Jun 23, 2021 11:10:27: Reset: Reset device via AIRCR.SYSRESETREQ.
+Wed Jun 23, 2021 11:10:27: Hardware reset with strategy 0 was performed
+Wed Jun 23, 2021 11:10:27: Target reset
+Wed Jun 23, 2021 11:12:29: Breakpoint hit: Code @ can_receive.c:36.13, type: default (auto) 
+Wed Jun 23, 2021 11:13:26: Breakpoint hit: Code @ can_receive.c:36.13, type: default (auto) 
+Wed Jun 23, 2021 11:14:50: Breakpoint hit: Code @ can_receive.c:36.13, type: default (auto) 
+Wed Jun 23, 2021 11:14:51: Breakpoint hit: Code @ can_receive.c:36.13, type: default (auto) 
+Wed Jun 23, 2021 11:14:53: Breakpoint hit: Code @ can_receive.c:36.13, type: default (auto) 
+Wed Jun 23, 2021 11:14:54: Breakpoint hit: Code @ can_receive.c:36.13, type: default (auto) 
+Wed Jun 23, 2021 11:17:08: Breakpoint hit: Code @ can_receive.c:18.13, type: default (auto) 
+Wed Jun 23, 2021 11:17:17: Breakpoint hit: Code @ can_receive.c:36.13, type: default (auto) 

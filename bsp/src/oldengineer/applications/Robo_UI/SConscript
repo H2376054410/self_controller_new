@@ -1,0 +1,11 @@
+from building import *
+
+cwd = GetCurrentDir()
+src = Glob('*.c')
+src += ['CustomUI_GraphParameters.h']
+
+CPPPATH = [cwd]
+
+group = DefineGroup('Robo_UI', src, depend = [''], CPPPATH = CPPPATH)
+
+Return('group')

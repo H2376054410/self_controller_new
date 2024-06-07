@@ -1,0 +1,14 @@
+from building import *
+
+cwd = GetCurrentDir()
+
+src = Glob('*.c')
+
+CPPPATH = [cwd]
+
+if GetDepend(['BSP_USING_REMOTE_SBUS']):
+    group = DefineGroup('Public/Hardware/Remote_Sbus', src, depend = [''], CPPPATH = CPPPATH)
+else:
+    group = []
+
+Return('group')

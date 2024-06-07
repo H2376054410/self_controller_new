@@ -1,0 +1,22 @@
+from building import *
+
+cwd = GetCurrentDir()
+
+src = []
+if GetDepend(['BSP_USING_EXACTSMOOTH']):
+    src += ['drv_ExactSmooth.c']
+if GetDepend(['BSP_USING_PLLFILTER']):
+    src += ['drv_PLLFilter.c']
+if GetDepend(['BSP_USING_ACCCLAMP']):
+    src += ['drv_AccClamp.c']
+if GetDepend(['BSP_USING_IIR_FILTER']):
+    src += ['drv_IIR_Filter.c']
+    
+CPPPATH = [cwd]
+
+if src:
+    group = DefineGroup('Public/Software/Filter', src, depend = [''], CPPPATH = CPPPATH)
+else:
+    group = []
+
+Return('group')

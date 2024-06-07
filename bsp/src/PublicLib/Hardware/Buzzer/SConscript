@@ -1,0 +1,14 @@
+from building import *
+
+cwd = GetCurrentDir()
+
+src = Glob('*.c')
+
+CPPPATH = [cwd]
+
+if GetDepend(['BSP_USING_BUZZER']):
+    group = DefineGroup('Public/Hardware/Buzzer', src, depend = [''], CPPPATH = CPPPATH)
+else:
+    group = []
+
+Return('group')
