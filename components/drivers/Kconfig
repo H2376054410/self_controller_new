@@ -51,10 +51,6 @@ if RT_USING_CAN
         default n
 endif
 
-config RT_USING_FDCAN
-    bool "Using FDCAN"
-    default n
-
 config RT_USING_HWTIMER
     bool "Using hardware timer device drivers"
     default n
