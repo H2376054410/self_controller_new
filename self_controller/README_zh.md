@@ -1,4 +1,4 @@
-# RT-Thread #
+# RT-Thread4.0.2 HERO 使用版 #
 
 [![GitHub release](https://img.shields.io/github/release/RT-Thread/rt-thread.svg)](https://github.com/RT-Thread/rt-thread/releases)
 [![Build Status](https://travis-ci.org/RT-Thread/rt-thread.svg)](https://travis-ci.org/RT-Thread/rt-thread)
@@ -7,6 +7,10 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](https://github.com/RT-Thread/rt-thread/pulls)
 
 RT-Thread是一个来自中国的开源物联网操作系统，它提供了非常强的可伸缩能力：从一个可以运行在ARM Cortex-M0芯片上的极小内核，到中等的ARM Cortex-M3/4/7系统，甚至是运行于MIPS32、ARM Cortex-A系列处理器上功能丰富系统。
+
+## 主要说明 ##
+
+本仓库主要是用于向 HERO 团队电控组提供一个比较稳定的底层修改相对完善的操作系统底层封装，主要想法是避免机器人在实际使用过程中出现因为下程序者底层 bug 修改不充分对实际机器人性能造成影响，因此本仓库主要存储的是 RT-Thread 本体程序，在本仓库的 ``` bsp/src ``` 文件夹下存在两个与 ``` libraries ``` 并列的子模块，主要是用于存储实际工程代码和自建库的代码。
 
 ## 简介 ##
 

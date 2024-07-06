@@ -138,7 +138,7 @@ int rtthread_startup(void);
 extern int $Super$$main(void);
 /* re-define main function */
 int $Sub$$main(void)
- {
+{
     rtthread_startup();
     return 0;
 }

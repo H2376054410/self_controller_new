@@ -1,0 +1,15 @@
+[submodule "bsp/src/PublicLib"]
+    path = bsp/src/PublicLib
+    url = https://gitee.com/hero_robomaster/rmec-public-lib.git
+    update = merge
+[submodule "bsp/src/Armies"]
+    path = bsp/src/Armies
+    url = https://gitee.com/hero_robomaster/rm2023-ec.git
+    update = merge
+[submodule "Armies"]
+	branch = master
+[submodule "PublicLib"]
+	branch = master
+[submodule "bsp/src/Armies2024"]
+	path = bsp/src/Armies2024
+	url = https://gitee.com/hero_robomaster/rm2024ec.git

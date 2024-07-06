@@ -39,7 +39,7 @@ rt_inline rt_uint32_t timeout_calc(rt_hwtimer_t *timer, rt_hwtimerval_t *tv)
 
             if (timeout <= overflow)
             {
-                counter = timeout*timer->freq;
+                counter = (int)(timeout*timer->freq);
                 devi = tv_sec - (counter/(float)timer->freq)*i;
                 /* Minimum calculation error */
                 if (devi > devi_min)
@@ -64,7 +64,7 @@ rt_inline rt_uint32_t timeout_calc(rt_hwtimer_t *timer, rt_hwtimerval_t *tv)
     timer->cycles = i;
     timer->reload = i;
     timer->period_sec = timeout;
-    counter = timeout*timer->freq;
+    counter = (int)(timeout*timer->freq);
 
     return counter;
 }
@@ -153,12 +153,12 @@ static rt_size_t rt_hwtimer_read(struct rt_device *dev, rt_off_t pos, void *buff
     cnt = timer->ops->count_get(timer);
     if (timer->info->cntmode == HWTIMER_CNTMODE_DW)
     {
-        cnt = (timer->freq * timer->period_sec) - cnt;
+        cnt = (int)(timer->freq * timer->period_sec) - cnt;
     }
 
     t = timer->overflow * timer->period_sec + cnt/(float)timer->freq;
-    tv.sec = t;
-    tv.usec = (t - tv.sec) * 1000000;
+    tv.sec = (int)t;
+    tv.usec = (int)((t - tv.sec) * 1000000);
     size = size > sizeof(tv)? sizeof(tv) : size;
     rt_memcpy(buffer, &tv, size);
 

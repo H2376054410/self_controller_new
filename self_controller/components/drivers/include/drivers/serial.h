@@ -28,6 +28,9 @@
 #define BAUD_RATE_921600                921600
 #define BAUD_RATE_2000000               2000000
 #define BAUD_RATE_3000000               3000000
+#ifndef RT_USING_POSIX_TERMIOS
+#define BAUD_RATE_4000000               4000000
+#endif /* RT_USING_POSIX_TERMIOS */
 
 #define DATA_BITS_5                     5
 #define DATA_BITS_6                     6
