@@ -241,7 +241,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     sendbuff[16]=((uint8_t*)&angle3)[0];
     sendbuff[17]=((uint8_t*)&angle3)[1];
     sendbuff[18]=((uint8_t*)&angle3)[2];
-    sendff[19]=((uint8_t*)&angle3)[3];
+    sendbuff[19]=((uint8_t*)&angle3)[3];
 
     sendbuff[20]=((uint8_t*)&angle1)[0];
     sendbuff[21]=((uint8_t*)&angle1)[1];
