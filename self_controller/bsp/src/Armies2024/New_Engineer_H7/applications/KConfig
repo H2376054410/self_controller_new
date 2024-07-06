@@ -1,0 +1,50 @@
+menu "Choose Car model Config"
+    
+    #选择兵种
+    choice
+        prompt "select Types of arms" 
+        default CORE_USING_INFANTRY
+        config CORE_USING_INFANTRY
+            bool "infantry"
+        config CORE_USING_HERO
+            bool "hero"
+    endchoice
+
+
+    # 选择英雄机器人
+    if  CORE_USING_HERO
+        choice
+            prompt "select Types of hero robot" 
+            default CORE_USING_NATION_HERO
+            #国赛英雄
+            config CORE_USING_NATION_HERO
+                bool "21 nation hero"
+            #22双马尾英雄
+            config CORE_USING_BUNCHES_HERO
+                bool "22 bunches hero"
+        endchoice
+    endif
+
+
+    # 选择步兵机器人
+    if  CORE_USING_INFANTRY
+        choice
+            prompt "select Types of infantry robot" 
+            default CORE_USING_GREENHEAD_INFANTRY
+            #黑头步兵
+            config CORE_USING_CARBONPLATE_INFANTRY
+                bool "21 carbon plate infantry"
+            #绿头步兵
+            config CORE_USING_GREENHEAD_INFANTRY
+                bool "22 green head infantry"
+            #22富贵步兵
+            config CORE_USING_RICH_INFANTRY
+                bool "22 rich infantry"
+            #22玻头步兵
+            config CORE_USING_GLASS_INFANTRY
+                bool "22 glass infantry"
+        endchoice
+    endif
+
+
+endmenu

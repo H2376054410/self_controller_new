@@ -1,0 +1,12 @@
+﻿from building import *
+
+cwd = GetCurrentDir()
+
+src = Glob('*.c')
+src +=['drv_Robo_data.h']
+
+CPPPATH = [cwd]
+
+group = DefineGroup('Robo_Data', src, depend = [''], CPPPATH = CPPPATH)
+
+Return('group')

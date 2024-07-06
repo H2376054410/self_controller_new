@@ -1,0 +1,10 @@
+from building import *
+
+cwd = GetCurrentDir()
+src = Glob('*.c')
+src +=  ['HRef_ID.h']
+CPPPATH = [cwd]
+
+group = DefineGroup('RefSystemCom', src, depend = [''], CPPPATH = CPPPATH)
+
+Return('group')

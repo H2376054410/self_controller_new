@@ -1,0 +1,211 @@
+menu "Hardware Drivers Config"
+
+config SOC_STM32H743II
+    bool
+    select SOC_SERIES_STM32H7
+    select RT_USING_COMPONENTS_INIT
+    select RT_USING_USER_MAIN
+    default y
+
+menu "Onboard Peripheral Drivers"
+
+    menuconfig CORE_USING_MONITOR
+        bool "Enable software wdg"
+        select CORE_USING_BUZZER
+        select CORE_USING_RGB_LIGHT
+        default n
+        if CORE_USING_MONITOR
+            config BSP_USING_WDT
+                bool "Enable hardware wdg"
+                select RT_USING_WDT
+                default n
+            config MONITOR_NEED_ALARM
+                bool "Enable monitor alarm"
+                default n
+        endif
+
+endmenu
+
+menu "On-chip Peripheral Drivers"
+
+    config BSP_USING_ON_CHIP_FLASH
+        bool "Enable On-Chip Flash"
+        default n
+
+    config BSP_USING_GPIO
+        bool "Enable GPIO"
+        select RT_USING_PIN
+        default y
+
+    menuconfig BSP_USING_UART
+        bool "Enable UART"
+        default y
+        select RT_USING_SERIAL
+        if BSP_USING_UART
+            config BSP_USING_UART1
+                bool "Enable UART1"
+                default n
+
+            config BSP_UART1_TX_USING_DMA
+                bool "Enable UART1 TX DMA"
+                depends on BSP_USING_UART1 && RT_SERIAL_USING_DMA
+                default n
+
+            config BSP_UART1_RX_USING_DMA
+                bool "Enable UART1 RX DMA"
+                depends on BSP_USING_UART1 && RT_SERIAL_USING_DMA
+                default n
+
+            config BSP_USING_UART3
+                bool "Enable UART3"
+                default n
+
+            config BSP_UART3_TX_USING_DMA
+                bool "Enable UART3 TX DMA"
+                depends on BSP_USING_UART3 && RT_SERIAL_USING_DMA
+                default n
+            
+            config BSP_UART3_RX_USING_DMA
+                bool "Enable UART3 RX DMA"
+                depends on BSP_USING_UART3 && RT_SERIAL_USING_DMA
+                default n
+
+            config BSP_USING_UART4
+                bool "Enable UART4"
+                default n
+
+            config BSP_UART4_TX_USING_DMA
+                bool "Enable UART4 TX DMA"
+                depends on BSP_USING_UART4 && RT_SERIAL_USING_DMA
+                default n
+            
+            config BSP_UART4_RX_USING_DMA
+                bool "Enable UART4 RX DMA"
+                depends on BSP_USING_UART4 && RT_SERIAL_USING_DMA
+                default n
+
+            config BSP_USING_UART6
+                bool "Enable UART6"
+                default n
+
+            config BSP_UART6_RX_USING_DMA
+                bool "Enable UART6 RX DMA"
+                depends on BSP_USING_UART6 && RT_SERIAL_USING_DMA
+                default n
+
+            config BSP_USING_UART7
+                bool "Enable UART7"
+                default n
+
+            config BSP_UART7_TX_USING_DMA
+                bool "Enable UART7 TX DMA"
+                depends on BSP_USING_UART7 && RT_SERIAL_USING_DMA
+                default n
+            
+            config BSP_UART7_RX_USING_DMA
+                bool "Enable UART7 RX DMA"
+                depends on BSP_USING_UART7 && RT_SERIAL_USING_DMA
+                default n
+            
+        endif 
+
+        menuconfig BSP_USING_FDCAN
+        bool "Enable FDCAN"
+        default n
+        select RT_USING_FDCAN
+        if BSP_USING_FDCAN
+            config BSP_USING_FDCAN1
+                bool "using FDCAN1"
+                default n
+            config BSP_USING_FDCAN2
+                bool "using FDCAN2"
+                default n
+            config RT_CAN_USING_HDR
+                bool "using hardware filter"
+                default n
+        endif
+
+        menuconfig BSP_USING_SPI
+        bool "Enable SPI BUS"
+        default n
+        select RT_USING_SPI
+        if BSP_USING_SPI
+            config BSP_USING_SPI1
+                bool "Enable SPI1 BUS"
+                default n
+
+            config BSP_SPI1_TX_USING_DMA
+                bool "Enable SPI1 TX DMA"
+                depends on BSP_USING_SPI1
+                default n
+                
+            config BSP_SPI1_RX_USING_DMA
+                bool "Enable SPI1 RX DMA"
+                depends on BSP_USING_SPI1
+                default n
+
+            config BSP_USING_SPI2
+                bool "Enable SPI2 BUS"
+                default n
+
+            config BSP_SPI2_TX_USING_DMA
+                bool "Enable SPI2 TX DMA"
+                depends on BSP_USING_SPI2
+                default n
+                
+            config BSP_SPI2_RX_USING_DMA
+                bool "Enable SPI2 RX DMA"
+                depends on BSP_USING_SPI2
+                default n
+
+        endif
+
+    menuconfig BSP_USING_PWM
+        bool "Enable pwm"
+        default n
+        select RT_USING_PWM
+        if BSP_USING_PWM
+
+        menuconfig BSP_USING_PWM3
+            bool "Enable timer3 output pwm"
+            default n
+            if BSP_USING_PWM3
+                config BSP_USING_PWM3_CH1
+                    bool "Enable PWM3 channel1 (---)"
+                    default n
+                config BSP_USING_PWM3_CH2
+                    bool "Enable PWM3 channel2 (PA7)"
+                    default n
+                config BSP_USING_PWM3_CH3
+                    bool "Enable PWM3 channel3 (PB0)"
+                    default n
+                config BSP_USING_PWM3_CH4
+                    bool "Enable PWM3 channel4 (PB1)"
+                    default n
+            endif
+
+        endif
+
+    config BSP_USING_DSP
+        bool "Enable STM32 DSP Libarary"
+        default n
+    
+    config CORE_USING_MONITOR
+        bool "Enable monitor"
+        default y
+        if CORE_USING_MONITOR
+            config BSP_USING_WDT
+                bool "Enable Hardware watchdog"
+                select RT_USING_WDT
+                default y
+        endif
+        
+    source "../../libraries/HAL_Drivers/Kconfig"
+    
+endmenu
+
+menu "Board extended module Drivers"
+
+endmenu
+ 
+endmenu
