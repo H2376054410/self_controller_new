@@ -54,7 +54,7 @@
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
-          <BrowseInformation>0</BrowseInformation>
+          <BrowseInformation>1</BrowseInformation>
           <ListingPath>.\build\keil\List\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
@@ -468,6 +468,21 @@
               <FileName>pid.c</FileName>
               <FileType>1</FileType>
               <FilePath>applications\pid.c</FilePath>
+            </File>
+            <File>
+              <FileName>CONTROL.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\CONTROL.c</FilePath>
+            </File>
+            <File>
+              <FileName>USARTINIT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\USARTINIT.c</FilePath>
+            </File>
+            <File>
+              <FileName>CANINIT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\CANINIT.c</FilePath>
             </File>
           </Files>
         </Group>
