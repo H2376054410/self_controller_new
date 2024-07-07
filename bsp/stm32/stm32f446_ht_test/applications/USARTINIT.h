@@ -3,5 +3,5 @@
 
 #include <rtthread.h>
 
-void usart1_init(void);
+void uart_init(void);
 #endif
