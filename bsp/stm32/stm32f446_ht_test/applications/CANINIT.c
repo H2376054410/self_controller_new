@@ -2,6 +2,7 @@
 #include <rtthread.h>
 #include <rtdevice.h>
 #include <board.h>
+#include "CONTROL.h"
 static struct rt_semaphore canrx_sem;			/* 用于接收消息的信号量 */
 static rt_device_t can_dev;					/* CAN 设备句柄 */
 static rt_thread_t can_trans = RT_NULL;			// can接收线程的
@@ -182,30 +183,6 @@ static void DM_MotorCan_Init(can_msg *Msg)
     Msg->data[7] = 0xFC;
 }
 /**
- * @brief 电机单报文写入函数
- * @param [SPICAN_MsgOnTransfer_t *]  Msg              can报文
- * @param [rt_int8_t]                 Motor_ID
- * @param [rt_int8_t]                 CtrlSetData      电机设定值
- */
-static void MotorCan_Write(can_msg *Msg,
-                           rt_int8_t Motor_ID,
-                           rt_uint16_t CtrlSetData)
-{
-    rt_int8_t index;
-    if (Motor_ID < 5)
-    {
-        index = 2 * (Motor_ID - 1);
-        Msg->data[index] = (CtrlSetData) >> 8;
-        Msg->data[index + 1] = CtrlSetData;
-    }
-    else
-    {
-        index = 2 * (Motor_ID % 5);
-        Msg->data[index] = (CtrlSetData) >> 8;
-        Msg->data[index + 1] = CtrlSetData;
-    }
-}
-/**
  * @brief 发送can报文初始化
  * @param Msg       can报文
  * @param CanID     标识符
@@ -252,17 +229,17 @@ static void can_rx_thread(void *parameter)
 	        switch (rxmsg.id)
         {
         case BOOM_LEFTID: // 大机械臂Yaw轴电机
-					  Boom_Left = rxmsg;
+//					  Boom_Left = rxmsg;
             DM_MotorCan_Receive(&Boomleft_Motor,
                                 rxmsg.data);
             break;
         case BOOM_RIGHTID: // 大机械臂Pitch1轴电机
-						 Boom_Right = rxmsg;
+//						 Boom_Right = rxmsg;
             DM_MotorCan_Receive(&Boomright_Motor,
                                 rxmsg.data);
             break;
         case BOOM_YAWID: // 小机械臂Pitch轴电机
-						 Boom_Yaw = rxmsg;
+//						 Boom_Yaw = rxmsg;
             DM_MotorCan_Receive(&Boomyaw_Motor,
                                 rxmsg.data);
             break;
@@ -298,11 +275,11 @@ static void thread1_entry(void *parameter) // can发送线程
 		msg.data[7]=0x08;
 
 		rt_sem_take(&rx_time, RT_WAITING_FOREVER);
-		size = rt_device_write(can_dev, 0, &msg, sizeof(msg));
-		if (size == 0)
-		{
-			rt_kprintf("can dev write data failed!\n");
-		}
+//		size = rt_device_write(can_dev, 0, &msg, sizeof(msg));
+//		if (size == 0)
+//		{
+//			rt_kprintf("can dev write data failed!\n");
+//		}
 	}
 }
 
@@ -312,7 +289,7 @@ static void timeout1(void *parameter) // 定时器回调函数
 	rt_sem_release(&rx_time);
 }
 /**
- * @brief 从机2的报文发送初始化函数
+ * @brief can报文发送初始化函数
  * @brief 机械臂和抬升末端部分电机报文发送
  * @param in
  */
@@ -335,6 +312,49 @@ void Send_Slave2_Init(void)
 		
 }
 
+static int float_to_uint(float x, float x_min, float x_max, int bits)
+{
+    float span = x_max - x_min;
+    float offset = x_min;
+    return (int)((x - offset) * ((float)((1 << bits) - 1)) / span);
+}
+/**
+ * @brief 达妙电机单报文写入函数
+ * @param [SPICAN_MsgOnTransfer_t *]  Msg              can报文
+ * @param [rt_int8_t]                 Motor_ID         电机ID （1~4）
+ * @param [rt_int8_t]                 CtrlSetData      电机设定值
+ */
+rt_uint16_t data_tran;
+static void DM_MotorCan_Write(can_msg *Msg,
+	
+                              float CtrlSetData)
+{
+
+    data_tran = float_to_uint(CtrlSetData, -1000, 1000.0, 12);
+    Msg->data[0] = 0x00;
+    Msg->data[1] = 0x00;
+    Msg->data[2] = 0x00;
+    Msg->data[3] = 0x00;
+    Msg->data[4] = 0x00;
+    Msg->data[5] = 0x00;
+    Msg->data[6] = (data_tran >> 8) | ((0x00 & 0x0F) << 4);
+    Msg->data[7] = data_tran;
+}
+void can_save_handle(BoomMotor_s *Boom_in)
+{
+		rt_size_t size1;
+	  rt_size_t size2;
+		rt_size_t size3;
+    DM_MotorCan_Write(&Boom_Left,
+                       Boom_in->BoomLeft);
+    DM_MotorCan_Write(&Boom_Right,
+                       Boom_in->BoomRight);
+    DM_MotorCan_Write(&Boom_Yaw,
+                       Boom_in->BoomYaw);
+	  size1 = rt_device_write(can_dev, 0, &Boom_Left, sizeof(Boom_Left));
+		size2 = rt_device_write(can_dev, 0, &Boom_Right, sizeof(Boom_Right));
+		size3 = rt_device_write(can_dev, 0, &Boom_Yaw, sizeof(Boom_Yaw));
+}
 /**
 * @brief：电机结构体初始化
 * @param [Motor_t*]	Motor:需要修改的电机的结构体
@@ -378,7 +398,7 @@ void motor_init_DM(Motor_t *motor, rt_uint32_t ID, float ratio, Angle_CtrlMode_E
 void can_init(void)
 {
 	
-	
+	/*初始化达妙电机的Msg*/
 	  Can_SendInit(&Boom_Left,1);
 		Can_SendInit(&Boom_Right,2);
 		Can_SendInit(&Boom_Yaw,3);
@@ -397,7 +417,7 @@ void can_init(void)
 	/* 以中断接收及发送方式打开 CAN 设备 */
 	res = rt_device_open(can_dev, RT_DEVICE_FLAG_INT_TX | RT_DEVICE_FLAG_INT_RX);
 	/* 创建数据接收线程 */
-	thread = rt_thread_create("can_rx", can_rx_thread, RT_NULL, 1024, 25, 1);
+	thread = rt_thread_create("can_rx", can_rx_thread, RT_NULL, 1024, 25, 5);
 	if (thread != RT_NULL)
 	{
 		rt_thread_startup(thread);
@@ -408,8 +428,8 @@ void can_init(void)
 
 	can_trans = rt_thread_create("cantrans",
 							thread1_entry, RT_NULL,
-							THREAD_STACK_SIZE,
-							THREAD_PRIORITY, 1);
+							1024,
+							20, 1);
 	/* 如 果 获 得 线 程 控 制 块， 启 动 这 个 线 程 */
 	if (can_trans != RT_NULL)
 		rt_thread_startup(can_trans);

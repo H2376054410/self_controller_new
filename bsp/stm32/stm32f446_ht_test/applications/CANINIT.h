@@ -3,6 +3,7 @@
 
 #include <rtthread.h>
 #include "pid.h"
+#include "CONTROL.h"
 #define CAN_DEV_NAME "can1" 
 
 
@@ -63,5 +64,6 @@ extern Motor_t Boomleft_Motor,Boomright_Motor,Boomyaw_Motor;
 extern  struct rt_semaphore rx_time;
 void can_init(void);
 void Send_Slave2_Init(void);
+void can_save_handle(BoomMotor_s *Boom_in);
 void motor_init_DM(Motor_t *motor, rt_uint32_t ID, float ratio, Angle_CtrlMode_E ModeSet, rt_int32_t Encoder_Len, rt_int32_t Set_Max, rt_int32_t Set_Min, int MotorReverse);
 #endif

@@ -37,5 +37,7 @@ motor_init_DM(&Boomyaw_Motor, 0, // 控制th4角度电机
                   ANGLE_CTRL_FULL,
                   A4310_ENCODERLEN,
                   180, -180, 0);
-Send_Slave2_Init();
+Send_Slave2_Init();//达妙电机初始化
+	
+	control_init();
 }
