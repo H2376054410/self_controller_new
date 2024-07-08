@@ -395,6 +395,25 @@ void motor_init_DM(Motor_t *motor, rt_uint32_t ID, float ratio, Angle_CtrlMode_E
         motor->dji.Set_MAX = Set_Max;
     }
 }
+void motor_init(void)
+{
+motor_init_DM(&Boomleft_Motor, 0, // 控制th4角度电机
+                  1,
+                  ANGLE_CTRL_FULL,
+                  A4310_ENCODERLEN,
+                  180, -180, 0);
+motor_init_DM(&Boomright_Motor, 0, // 控制th4角度电机
+                  1,
+                  ANGLE_CTRL_FULL,
+                  A4310_ENCODERLEN,
+                  180, -180, 0);
+motor_init_DM(&Boomyaw_Motor, 0, // 控制th4角度电机
+                  1,
+                  ANGLE_CTRL_FULL,
+                  A4310_ENCODERLEN,
+                  180, -180, 0);
+
+}
 void can_init(void)
 {
 	
