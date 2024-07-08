@@ -12,7 +12,7 @@ Boom_States.BoomYaw=20;
 	while(1)
 	{
 				rt_sem_take(&control_sem, RT_WAITING_FOREVER);
-	      can_save_handle(&Boom_States);
+//	      can_save_handle(&Boom_States);
 	}
 	
 }
