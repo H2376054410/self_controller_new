@@ -50,7 +50,7 @@ static void thread1_entry(void *parameter) // can发送线程
 	while (1)
 	{
 
-	msg.id = 0x1FF;			/* ID  */
+	msg.id = 0x01;			/* ID  */
 	msg.ide = RT_CAN_STDID; /* 标准格式 */
 	msg.rtr = RT_CAN_DTR;	/* 数据帧 */
 	msg.len = 8;			/* 数据长度为 2 */
@@ -58,14 +58,14 @@ static void thread1_entry(void *parameter) // can发送线程
 		
 //*(float*)(&msg.data[0])= 0.1;
 //msg.data[7]= 255;
-		msg.data[0]=-0x09;
+		msg.data[0]=0x20;
 		msg.data[1]=0x00;
-		msg.data[2]=-0x09;
-		msg.data[3]=0x00;
-		msg.data[4]=0x00;
+		msg.data[2]=0x00;
+		msg.data[3]=0x40;
+		msg.data[4]=0x08;
 		msg.data[5]=0x00;
-		msg.data[6]=0x00;
-		msg.data[7]=0x00;
+		msg.data[6]=0x10;
+		msg.data[7]=0x08;
 
 		rt_sem_take(&rx_time, RT_WAITING_FOREVER);
 		size = rt_device_write(can_dev, 0, &msg, sizeof(msg));
