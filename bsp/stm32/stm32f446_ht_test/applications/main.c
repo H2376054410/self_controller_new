@@ -22,4 +22,20 @@ int main(void)
 
 can_init();
 uart_init();
+motor_init_DM(&Boomleft_Motor, 0, // 控制th4角度电机
+                  1,
+                  ANGLE_CTRL_FULL,
+                  A4310_ENCODERLEN,
+                  180, -180, 0);
+motor_init_DM(&Boomright_Motor, 0, // 控制th4角度电机
+                  1,
+                  ANGLE_CTRL_FULL,
+                  A4310_ENCODERLEN,
+                  180, -180, 0);
+motor_init_DM(&Boomyaw_Motor, 0, // 控制th4角度电机
+                  1,
+                  ANGLE_CTRL_FULL,
+                  A4310_ENCODERLEN,
+                  180, -180, 0);
+Send_Slave2_Init();
 }
