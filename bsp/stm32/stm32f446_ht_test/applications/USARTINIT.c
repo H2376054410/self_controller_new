@@ -193,7 +193,7 @@ void uart_init(void)
 	char str1[] = "AT+MRATE=100\r\n";
 	char str2[] = "AT+MODE=1\r\n";
 	char str3[] = "AT+PRATE=100\r\n";
-	  sendbuff[0]=0xA5;
+	sendbuff[0]=0xA5;
   sendbuff[1]=(int16_t)(data_length);;
   sendbuff[2]=(int16_t)(data_length)>>8;
   sendbuff[3]=0x5C;
@@ -250,9 +250,9 @@ void uart_init(void)
     config4.parity = PARITY_NONE;    
     rt_device_control(serial_u4, RT_DEVICE_CTRL_CONFIG, &config4);	
 	
-	rt_sem_init(&rx_sem_u1, "rx_usart1", 0, RT_IPC_FLAG_FIFO);
-	rt_sem_init(&rx_sem_u3, "rx_usart3", 0, RT_IPC_FLAG_FIFO);
-	rt_sem_init(&rx_sem_u4, "rx_usart4", 0, RT_IPC_FLAG_FIFO);
+	  rt_sem_init(&rx_sem_u1, "rx_usart1", 0, RT_IPC_FLAG_FIFO);
+	  rt_sem_init(&rx_sem_u3, "rx_usart3", 0, RT_IPC_FLAG_FIFO);
+	  rt_sem_init(&rx_sem_u4, "rx_usart4", 0, RT_IPC_FLAG_FIFO);
 	    /* 初始化消息队列 */
     rt_mq_init(&rx_mq1, "rx_mq",
                msg_pool1,              /* 存放消息的缓冲区 */
@@ -277,8 +277,8 @@ void uart_init(void)
     rt_device_set_rx_indicate(serial_u1, uart_input1);
 	  rt_device_set_rx_indicate(serial_u3, uart_input3);
 	  rt_device_set_rx_indicate(serial_u4, uart_input4);
-	for(int i = 0;i<1;i++)
-	rt_device_write(serial_u1, 0, str1, (sizeof(str1)-1));
+//	for(int i = 0;i<1;i++)
+//	rt_device_write(serial_u1, 0, str1, (sizeof(str1)-1));
 
 	    /* 创建 serial 线程 */
    thread1 = rt_thread_create("u1_thread", usart1_thread_entry, RT_NULL, 1024, 25, 10);
