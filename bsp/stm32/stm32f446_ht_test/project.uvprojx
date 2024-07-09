@@ -484,6 +484,11 @@
               <FileType>1</FileType>
               <FilePath>.\applications\CANINIT.c</FilePath>
             </File>
+            <File>
+              <FileName>drv_CRC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\drv_CRC.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

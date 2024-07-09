@@ -18,6 +18,7 @@
 
 int main(void)
 {
+	
 can_init();
 uart_init();
 motor_init();

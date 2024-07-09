@@ -8,6 +8,10 @@ static struct rt_semaphore rx_sem_u4;
 static rt_device_t serial_u1;
 static rt_device_t serial_u3;
 static rt_device_t serial_u4;
+uint8_t top1;
+uint8_t top2;
+float angle1;
+float angle2;
 /* 消息队列控制块 */
 static struct rt_messagequeue rx_mq1;
 static struct rt_messagequeue rx_mq3;
@@ -15,9 +19,22 @@ static struct rt_messagequeue rx_mq4;
 uint8_t rx_buffer1[RT_SERIAL_RB_BUFSZ + 1];
 uint8_t rx_buffer3[RT_SERIAL_RB_BUFSZ + 1];
 uint8_t rx_buffer4[RT_SERIAL_RB_BUFSZ + 1];
+uint8_t sendbuff[39]={0};
+int data_length = 30;
+int cmd_id = 0x0302;
 #define THREAD_PRIORITY 20
 #define THREAD_STACK_SIZE 1024
 #define THREAD_TIMESLICE 10
+
+static struct rt_timer time_usart;
+
+float angle_tranform(uint8_t *buff)
+{
+  uint32_t temp=0;
+  for(int i=0;i<=3;i++)
+    ((uint8_t*)(&temp))[i]=buff[3-i];
+  return temp/262144.0f*360.0f;
+}
 /* 串口接收数据回调函数 */
 static rt_err_t uart_input1(rt_device_t dev, rt_size_t size)
 {
@@ -79,13 +96,12 @@ static void usart1_thread_entry(void *parameter)
         {
 					  /* 从串口读取数据*/
             rx_length = rt_device_read(msg.dev, 0, rx_buffer1, msg.size);
-//            if (rx_length != 18)
-//            { // 如果长度不对，则直接跳过，但是必须从rt_device_read读出，否则缓冲区会溢出
-//                continue;
-//            }
-					rt_device_write(msg.dev, 0, rx_buffer1, msg.size);
-//            rx_buffer1[rx_length] = '\0';
-
+						if(top1<(uint8_t)(top1+9)&&rx_length-top1==9)
+						{
+							if(rx_buffer1[top1]==0x00&&rx_buffer1[top1+1]==0x03&&rx_buffer1[top1+2]==0x04)
+								angle1=angle_tranform(&rx_buffer1[(uint8_t)(top1+3)]);
+						}
+						top1=0;
 				}
 	   }
 }
@@ -103,12 +119,12 @@ static void usart3_thread_entry(void *parameter)
         {
 					  /* 从串口读取数据*/
             rx_length = rt_device_read(msg.dev, 0, rx_buffer3, msg.size);
-            if (rx_length != 18)
-            { // 如果长度不对，则直接跳过，但是必须从rt_device_read读出，否则缓冲区会溢出
-                continue;
-            }
-            rx_buffer3[rx_length] = '\0';
-
+						if(top2<(uint8_t)(top2+9)&&rx_length-top2==9)
+						{
+							if(rx_buffer3[top2]==0x00&&rx_buffer3[top2+1]==0x03&&rx_buffer3[top2+2]==0x04)
+								angle2=angle_tranform(&rx_buffer3[(uint8_t)(top2+3)]);
+						}
+						top2=0;
 				}
 	   }
 }
@@ -116,28 +132,74 @@ static void usart4_thread_entry(void *parameter)
 {
     struct rx_msg msg;
     rt_err_t result;
+	  uint16_t temp=0;
     rt_uint32_t rx_length;
     while (1)
     {
-        rt_memset(&msg, 0, sizeof(msg));
-        /* 从消息队列中读取消息*/
-        result = rt_mq_recv(&rx_mq4, &msg, sizeof(msg), 200);
-        if (result == RT_EOK)
-        {
-					  /* 从串口读取数据*/
-            rx_length = rt_device_read(msg.dev, 0, rx_buffer4, msg.size);
-            if (rx_length != 18)
-            { // 如果长度不对，则直接跳过，但是必须从rt_device_read读出，否则缓冲区会溢出
-                continue;
-            }
-            rx_buffer4[rx_length] = '\0';
+		rt_sem_take(&rx_sem_u4, RT_WAITING_FOREVER);
+		
+			
+		sendbuff[7]=1;
+    sendbuff[8]=((uint8_t*)&angle1)[0];
+    sendbuff[9]=((uint8_t*)&angle1)[1];
+    sendbuff[10]=((uint8_t*)&angle1)[2];
+    sendbuff[11]=((uint8_t*)&angle1)[3];
 
-				}
+    sendbuff[12]=((uint8_t*)&angle2)[0];
+    sendbuff[13]=((uint8_t*)&angle2)[1];
+    sendbuff[14]=((uint8_t*)&angle2)[2];
+    sendbuff[15]=((uint8_t*)&angle2)[3];
+
+    sendbuff[16]=((uint8_t*)&angle1)[0];
+    sendbuff[17]=((uint8_t*)&angle1)[1];
+    sendbuff[18]=((uint8_t*)&angle1)[2];
+    sendbuff[19]=((uint8_t*)&angle1)[3];
+
+    sendbuff[20]=((uint8_t*)&angle1)[0];
+    sendbuff[21]=((uint8_t*)&angle1)[1];
+    sendbuff[22]=((uint8_t*)&angle1)[2];
+    sendbuff[23]=((uint8_t*)&angle1)[3];
+
+    sendbuff[24]=((uint8_t*)&angle1)[0];
+    sendbuff[25]=((uint8_t*)&angle1)[1];
+    sendbuff[26]=((uint8_t*)&angle1)[2];
+    sendbuff[27]=((uint8_t*)&angle1)[3];
+
+    sendbuff[28]=((uint8_t*)&angle1)[0];
+    sendbuff[29]=((uint8_t*)&angle1)[1];
+    sendbuff[30]=((uint8_t*)&angle1)[2];
+    sendbuff[31]=((uint8_t*)&angle1)[3];
+
+    sendbuff[32] = 0;
+    sendbuff[33] = 0;
+    sendbuff[34] = 0;
+    sendbuff[35] = 0;
+    sendbuff[36] = 0;
+    temp=Get_CRC16_Check_Sum(sendbuff,37,CRC_INIT);
+    sendbuff[38]=temp>>8;
+    sendbuff[37]=temp;
+			rt_device_write(serial_u4, 0, &sendbuff, sizeof(sendbuff));
 	   }
 }
+static void timeout_usart(void *parameter) // 定时器回调函数
+{
+	/*释放信号量*/
+	rt_sem_release(&rx_sem_u4);
+}
+
 void uart_init(void)
 {
   char str[] = "hello RT-Thread!\r\n";
+	char str1[] = "AT+MRATE=100\r\n";
+	char str2[] = "AT+MODE=1\r\n";
+	char str3[] = "AT+PRATE=100\r\n";
+	  sendbuff[0]=0xA5;
+  sendbuff[1]=(int16_t)(data_length);;
+  sendbuff[2]=(int16_t)(data_length)>>8;
+  sendbuff[3]=0x5C;
+  sendbuff[4]=Get_CRC8_Check_Sum(sendbuff,4,CRC8_INIT);
+  sendbuff[5]=(int16_t)(cmd_id);
+  sendbuff[6]=(int16_t)(cmd_id)>>8;
 	rt_thread_t thread1;
 	rt_thread_t thread3;
 	rt_thread_t thread4;
@@ -215,7 +277,8 @@ void uart_init(void)
     rt_device_set_rx_indicate(serial_u1, uart_input1);
 	  rt_device_set_rx_indicate(serial_u3, uart_input3);
 	  rt_device_set_rx_indicate(serial_u4, uart_input4);
-//	rt_device_write(serial_u1, 0, str, (sizeof(str) - 1));
+	for(int i = 0;i<1;i++)
+	rt_device_write(serial_u1, 0, str1, (sizeof(str1)-1));
 
 	    /* 创建 serial 线程 */
    thread1 = rt_thread_create("u1_thread", usart1_thread_entry, RT_NULL, 1024, 25, 10);
@@ -234,6 +297,15 @@ void uart_init(void)
     {
         rt_thread_startup(thread4);
     }
+		
+			/* 初始化定时器 */
+	rt_timer_init(&time_usart, "timer_usart",	   /* 定时器名字是 timer1 */
+				  timeout_usart,				   /* 超时时回调的处理函数 */
+				  RT_NULL,				   /* 超时函数的入口参数 */
+				  1,					   /* 定时长度，以 OS Tick 为单位，即 10 个 OS Tick */
+				  RT_TIMER_FLAG_PERIODIC); /* 周期性定时器 */
+
+	rt_timer_start(&time_usart);
 }
 	
 
