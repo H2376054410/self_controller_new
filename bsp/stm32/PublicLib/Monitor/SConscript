@@ -1,0 +1,24 @@
+from building import *
+
+cwd = GetCurrentDir()
+src = []
+
+if GetDepend(['BSP_USING_MONITOR']):
+    src += ['drv_monitor.c'] 
+    src += ['mod_Monitor.c']
+    src += ['app_monitor.c']
+    if GetDepend(['BSP_USING_WDG']):
+        src += ['drv_HardWdt.c']
+        src += ['drv_iwdg.c']
+    if GetDepend(['MONITOR_USING_RGB_LIGHT']) or GetDepend(['MONITOR_USING_BUZZER']):
+        src += ['func_Alarm.c']
+
+else:
+    if GetDepend(['BSP_NOT_USING_MONITOR']):
+        src = []
+        src += ['NoMonitor/app_monitor.h']
+
+CPPPATH = [cwd]
+group = DefineGroup('Public/Monitor', src, depend = [''], CPPPATH = CPPPATH)
+
+Return('group')

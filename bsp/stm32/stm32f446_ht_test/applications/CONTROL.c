@@ -3,16 +3,41 @@
 static struct rt_timer timer_control;				
 struct rt_semaphore control_sem;
 BoomMotor_s Boom_States;
+BoomState_Data_s Boom_Datas;
 
 static void Boom_Control_Thread(void *parameter)
 {
-Boom_States.BoomLeft=20;
-Boom_States.BoomRight=20;
-Boom_States.BoomYaw=20;	
+Boom_States.BoomLeft=0;
+Boom_States.BoomRight=0;
+Boom_States.BoomYaw=0;	
 	while(1)
 	{
 				rt_sem_take(&control_sem, RT_WAITING_FOREVER);
-//	      can_save_handle(&Boom_States);
+
+		//数据读取
+		Boom_Datas.AngleNow.BoomLeft = rec_data_s.AngleNowBOOM_LEFT;
+		Boom_Datas.AngleNow.BoomRight = rec_data_s.AngleNowBOOM_RIGHT;
+		Boom_Datas.AngleNow.BoomYaw =  rec_data_s.AngleNowBOOM_YAW ;		
+		Boom_Datas.SpeedNow.BoomLeft = rec_data_s.SpeedNowBOOM_LEFT;
+		Boom_Datas.SpeedNow.BoomRight= rec_data_s.SpeedNowBOOM_RIGHT;
+		Boom_Datas.SpeedNow.BoomYaw =  rec_data_s.SpeedNowBOOM_YAW ;		
+		Boom_Datas.AngleSetPlan.BoomLeft = 2.0f;
+		Boom_Datas.AngleSetPlan.BoomRight = 2.0f;	
+		Boom_Datas.AngleSetPlan.BoomYaw = 2.0f;
+		BoomMotDataFilter(&Boom_Datas);
+		//开始控制
+		
+		
+		BoomMotor_Ctrl(BoomLeft,&Boom_Datas);
+		BoomMotor_Ctrl(BoomRight,&Boom_Datas);
+		BoomMotor_Ctrl(BoomYaw,&Boom_Datas);		
+		Boom_States.BoomLeft=Boom_Datas.MotorCtrl_Out.BoomLeft;
+		Boom_States.BoomRight=Boom_Datas.MotorCtrl_Out.BoomRight;
+		Boom_States.BoomYaw=Boom_Datas.MotorCtrl_Out.BoomYaw;	
+		Boom_States.BoomLeft=20;
+    Boom_States.BoomRight=20;
+    Boom_States.BoomYaw=20;	
+	  can_save_handle(&Boom_States);
 	}
 	
 }
@@ -47,3 +72,8 @@ if (ctrl_thread != RT_NULL)
 
 
 }
+
+
+
+
+

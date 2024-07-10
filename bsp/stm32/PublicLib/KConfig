@@ -1,0 +1,309 @@
+menu "Choose Public Libraries"
+
+menu "Whether to use the HardWare Libraries"
+
+    menuconfig BSP_USING_BUZZER
+        bool "Use the driver of buzzers"
+        default y
+        if BSP_USING_BUZZER
+            config BUZZER_PWM_DEVICE_NAME
+                string "the specific pwm device used for buzzer"
+                default "pwm2"
+            config BUZZER_PWM_CHANNEL
+                int "the pwm channel used for buzzer"
+                default 4
+        endif
+
+    menuconfig BSP_USING_REMOTE_DT7
+        bool "Use the driver of DT7 remote"
+        default y
+        if BSP_USING_REMOTE_DT7
+            config REMOTE_UART_DEVICE_NAME
+                string "the specific uart device used for remote dt7"
+                default "uart3"
+        endif
+
+    menuconfig BSP_USING_REMOTE_SBUS
+        bool "Use the driver of SBUS remote"
+        default y
+        if BSP_USING_REMOTE_SBUS
+            config REMOTE_UART_DEVICE_NAME
+                string "the specific uart device used for remote sbus"
+                default "uart3"
+        endif
+
+    menuconfig BSP_USING_RGB_LIGHT
+        bool "Use the driver of rgb light"
+        default n
+        if BSP_USING_RGB_LIGHT
+            config RLIGHT_PWM_DEVICE_NAME
+                string "the specific pwm device used for red light"
+                default "pwm5"
+            config RLIGHT_PWM_CHANNEL
+                int "the pwm channel used for red light"
+                default 3
+            config GLIGHT_PWM_DEVICE_NAME
+                string "the specific pwm device used for green light"
+                default "pwm5"
+            config GLIGHT_PWM_CHANNEL
+                int "the pwm channel used for green light"
+                default 2
+            config BLIGHT_PWM_DEVICE_NAME
+                string "the specific pwm device used for blue light"
+                default "pwm5"
+            config BLIGHT_PWM_CHANNEL
+                int "the pwm channel used for blue light"
+                default 1
+        endif
+
+    config BSP_USING_OLED
+        bool "Use the driver of oled screen"
+        default n
+
+    menuconfig BSP_USING_SPI_Master
+        bool "Use the driver of SPI Master"
+        default n
+        if BSP_USING_SPI_Master
+            config SPI_MASTER_USE_HSPIN
+                int "the spin used for Master"
+                default 1
+            config USE_STC_SLAVE
+                bool "whether using STC_slave"
+                default y
+            menuconfig NEED_SLAVE_NUM
+                int "the number of slaves(1--4)"
+                default 3
+                
+                if NEED_SLAVE_NUM>0
+                    config CS_PORT_0
+                        string "the CS Port to choose slave_0(A instead of a)"
+                        default "E"
+                    config CS_PIN_0
+                        int "the CS Pin to choose slave_0"
+                        default 1
+                    config RST_PORT_0
+                        string "the RST Port to choose slave_0(A instead of a)"
+                        default "F"
+                    config RST_PIN_0
+                        int "the RST Pin to choose slave_0"
+                        default 1
+                endif
+
+                if NEED_SLAVE_NUM>1
+                    config CS_PORT_1
+                        string "the CS Port to choose slave_1"
+                        default "E"
+                    config CS_PIN_1
+                        int "the CS Pin to choose slave_1"
+                        default 2
+                    config RST_PORT_1
+                        string "the RST Port to choose slave_1"
+                        default "F"
+                    config RST_PIN_1
+                        int "the RST Pin to choose slave_1"
+                        default 2
+                endif
+
+                if NEED_SLAVE_NUM>2
+                    config CS_PORT_2
+                        string "the CS Port to choose slave_2"
+                        default "E"
+                    config CS_PIN_2
+                        int "the CS Pin to choose slave_2"
+                        default 3
+                    config RST_PORT_2
+                        string "the RST Port to choose slave_2"
+                        default "F"
+                    config RST_PIN_2
+                        int "the RST Pin to choose slave_2"
+                        default 3
+                endif
+
+                if NEED_SLAVE_NUM>3
+                config CS_PORT_3
+                    string "the CS Port to choose slave_3"
+                    default "E"
+                config CS_PIN_3
+                    int "the CS Pin to choose slave_3"
+                    default 4
+                config RST_PORT_3
+                    string "the RST Port to choose slave_3"
+                    default "F"
+                config RST_PIN_3
+                    int "the RST Pin to choose slave_3"
+                    default 4
+                endif
+        endif
+
+    menuconfig BSP_USING_SD_MASTER
+        bool "Use the driver of SD log module"
+        default n
+        if BSP_USING_SD_MASTER
+        menu "SD hardware settings"
+            config SD_MASTER_SPI_BUS
+                string "the spi bus (spiX)"
+                default "spi1"
+            config SD_MASTER_DEV_NAME
+                string "the spi dev (spiXN)"
+                default "spi10"
+            config SD_MASTER_SPI_NSS_PORT
+                string "the CS port (ie A)"
+                default "A"
+            config SD_MASTER_SPI_NSS_PIN
+                int "the CS pin (ie 4)"
+                default 4
+        endmenu
+        menu "SD software settings"
+            config SD_MASTER_BUFF_SIZE
+                int "decide the size of the sd general buffer (must be 4*n)"
+                range 256 4096
+                default 1024
+            menu "config the print function"
+                config SD_PRINT_BUFF_SIZE
+                    int "decide the size of a print buffer"
+                    range 32 256
+                    default 64
+                config SD_PRINT_BUFF_CNT
+                    int "decide the count of print buffers"
+                    range 2 16
+                    default 8
+                endmenu
+        endmenu
+        endif
+
+endmenu
+
+menu "Whether to use the SoftWare Libraries"
+
+    config BSP_USING_CPU_USAGE
+        bool "use the cpu usage test module"
+        default y
+
+    config BSP_USING_PID
+        bool "use the pid module"
+        default y
+
+    config BSP_USING_MOTORLIB
+        bool "use the motor module"
+        select BSP_USING_PID
+        default y
+
+    config BSP_USING_SETPLANNING
+        bool "use the set planning module"
+        default y
+
+    config BSP_USING_QUEUE
+        bool "use the array loop queue module"
+        default y
+
+    config BSP_USING_LIST
+        bool "use the list module"
+        default n
+
+    menuconfig BSP_USING_UTILS
+        bool "use the utils module"
+        default y
+        if BSP_USING_UTILS
+        config BSP_UTILS_USING_ARM_MATH
+            bool "use arm_math"
+            default y
+        endif
+
+    menuconfig BSP_USING_DATASERVER
+        bool "use the dataserver module"
+        select BSP_USING_UTILS
+        default y
+        if BSP_USING_DATASERVER
+            config DATA_MAX_SIZE
+                int "is the Dataserver's max size"
+                range 4 10240
+                default 2048
+            config DataServer_Handle_MAX
+                int "is the Dataserver's handle max size"
+                range 10 200
+                default 50
+        endif
+
+    menu "Use the filter module(s)"
+
+        config BSP_USING_EXACTSMOOTH
+            bool "use the ExactSmooth module"
+            default y
+
+        config BSP_USING_PLLFILTER
+            bool "use the PLL filter"
+            select BSP_USING_UTILS
+            default n
+			
+        config BSP_USING_ACCCLAMP
+            bool "use the AccClamp module"
+            default y
+        config BSP_USING_IIR_FILTER
+            bool "use the IIR Filter"
+            default y			
+    endmenu
+
+    menu "Use the key-menu module(s)"
+
+        config BSP_USING_KEY_CALLBACK
+            bool "use the key-set callback module"
+            default y   
+
+        config BSP_USING_KEY_MENU
+            bool "use the key-set menu module"
+            select BSP_USING_KEY_CALLBACK
+            default y
+
+    endmenu
+
+endmenu
+
+menu "Monitor Settings"
+
+    choice
+        prompt "Select monitor settings"
+        default BSP_NOT_USING_MONITOR
+        config BSP_USING_MONITOR_GIMBAL
+            bool "Use monitor for gimbal"
+        config BSP_USING_MONITOR_CHASSIS
+            bool "Use monitor for chassis"
+        config BSP_NOT_USING_MONITOR
+            bool "Do not use monitor"
+    endchoice
+
+    if BSP_USING_MONITOR_GIMBAL || BSP_USING_MONITOR_CHASSIS
+        config BSP_USING_WDG
+            bool "Use hardware watch dog"
+            default n
+        config BSP_USING_MONITOR
+            bool "Use the software watch dog"
+            default y
+        config BSP_USING_SOFT_RESTE
+            bool "Use the software reset"
+            default N
+        config MONITOR_NEED_ALARM
+            bool "Whether the monitor need alarm"
+            select BSP_USING_MONITOR
+            default n
+			
+		if MONITOR_NEED_ALARM
+			config MONITOR_USING_RGB_LIGHT 
+				bool "Enable rgb light"
+            select BSP_USING_RGB_LIGHT
+				default n
+			config MONITOR_USING_BUZZER 
+				bool "Enable monitor buzzer"
+            select BSP_USING_BUZZER
+				default n
+            config RTT_SWITCH_PIN_NUM
+                int "the switch rtt pin num"
+                default 2
+            config RTT_SWITCH_PIN_PORT
+                string "the switch rtt pin port"
+                default A                
+		endif
+    endif
+
+endmenu
+
+endmenu

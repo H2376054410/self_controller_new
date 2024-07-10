@@ -4,6 +4,7 @@
 #include <rtthread.h>
 #include "pid.h"
 #include "CONTROL.h"
+#include "drv_utils.h"
 #define CAN_DEV_NAME "can1" 
 
 
@@ -51,7 +52,15 @@ typedef struct DjiMotor
     rt_int32_t FreshTick; // 记录最后一次数据刷新时刻，用于判断电机是否离线
 } DjiMotor_t;
 
-
+typedef struct rec_data1
+{
+float AngleNowBOOM_LEFT;
+float SpeedNowBOOM_LEFT;
+float AngleNowBOOM_RIGHT;
+float SpeedNowBOOM_RIGHT;
+float AngleNowBOOM_YAW;
+float SpeedNowBOOM_YAW;
+} rec_data;
 typedef struct __Motor_t
 {
     DjiMotor_t dji;
@@ -59,12 +68,37 @@ typedef struct __Motor_t
     pid_t spe;
 
 } Motor_t;
-
+typedef enum
+{
+    BoomLeft,
+    BoomRight,
+    BoomYaw,
+} ArmMotor_e;
+typedef struct
+{
+    BoomMotor_s AngleNow;               // 不可以用JScope查看此变量
+    BoomMotor_s SpeedNow;               // 不可以用JScope查看此变量
+    BoomMotor_s AngleHope;              // 目标角度值
+    BoomMotor_s AngleHopeOld;           //上一次目标角度值
+    BoomMotor_s AngleNowFilter;         //
+    BoomMotor_s AngleNow_CrossCircle;   // 当前角度（跨圈）
+    BoomMotor_s SpeedNowFilter;         //
+    BoomMotor_s AngleSetPlan;           // 设定值规划之后
+    BoomMotor_s SpeedFeedforward;       // 设定值规划后的速度前馈
+    BoomMotor_s Compensation;  // 力矩补偿
+    BoomMotor_s MotorCtrl_Out; // 设定值规划后的速度前馈
+} BoomState_Data_s;
+extern float AngleNow;
+extern float SpeedNow;
 extern Motor_t Boomleft_Motor,Boomright_Motor,Boomyaw_Motor;
 extern  struct rt_semaphore rx_time;
+extern rec_data rec_data_s;
 void can_init(void);
 void Send_Slave2_Init(void);
 void motor_init(void);
 void can_save_handle(BoomMotor_s *Boom_in);
 void motor_init_DM(Motor_t *motor, rt_uint32_t ID, float ratio, Angle_CtrlMode_E ModeSet, rt_int32_t Encoder_Len, rt_int32_t Set_Max, rt_int32_t Set_Min, int MotorReverse);
+void BoomMotor_Ctrl(ArmMotor_e ArmMotor,
+                    BoomState_Data_s *BoomStateData);
+void BoomMotDataFilter(BoomState_Data_s *BoomStateData);
 #endif

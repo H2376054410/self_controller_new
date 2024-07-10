@@ -3,6 +3,7 @@
 #include <rtdevice.h>
 #include <board.h>
 #include "CONTROL.h"
+
 static struct rt_semaphore canrx_sem;			/* 用于接收消息的信号量 */
 static rt_device_t can_dev;					/* CAN 设备句柄 */
 static rt_thread_t can_trans = RT_NULL;			// can接收线程的
@@ -13,9 +14,206 @@ struct rt_can_msg msg = {0}; /* CAN 消息 */ // 这个是自己设定的一个链表名字
 #define CAN_DEV_NAME1 "can1" /* CAN 设备名称 */
 struct rt_semaphore rx_time;			/*用于定时器的信号量*/
 static struct rt_timer timer1;				/*定时器1*/
-
+rec_data rec_data_s;
 can_msg Boom_Left,Boom_Right,Boom_Yaw;
 Motor_t Boomleft_Motor,Boomright_Motor,Boomyaw_Motor;
+
+/**
+ * @brief 对Boom电机角度值及速度值进行滤波
+ * @param BoomStateData
+ */
+void BoomMotDataFilter(BoomState_Data_s *BoomStateData)
+{
+
+    /*BoomYaw*/
+    BoomStateData->AngleNowFilter.BoomLeft =
+        UTILS_LP_FAST(BoomStateData->AngleNowFilter.BoomLeft,
+                      BoomStateData->AngleNow.BoomLeft, 0.8f); // 滞后滤波
+    BoomStateData->SpeedNowFilter.BoomLeft =
+        UTILS_LP_FAST(BoomStateData->SpeedNowFilter.BoomLeft,
+                      BoomStateData->SpeedNow.BoomLeft, 0.8f);
+
+    /*BoomPitch1*/
+    BoomStateData->AngleNowFilter.BoomRight =
+        UTILS_LP_FAST(BoomStateData->AngleNowFilter.BoomRight,
+                      BoomStateData->AngleNow.BoomRight, 0.8f); // 滞后滤波
+    BoomStateData->SpeedNowFilter.BoomRight =
+        UTILS_LP_FAST(BoomStateData->SpeedNowFilter.BoomRight,
+                      BoomStateData->SpeedNow.BoomRight, 0.8f);
+
+    /*BoomPitch2*/
+    BoomStateData->AngleNowFilter.BoomYaw =
+        UTILS_LP_FAST(BoomStateData->AngleNowFilter.BoomYaw,
+                      BoomStateData->AngleNow.BoomYaw, 0.8f); // 滞后滤波
+    BoomStateData->SpeedNowFilter.BoomYaw =
+        UTILS_LP_FAST(BoomStateData->SpeedNowFilter.BoomYaw,
+                      BoomStateData->SpeedNow.BoomYaw, 0.8f);
+
+}
+/**
+ * @brief：电机转速环pid输出的计算
+ * @param [Motor_t*]	Motor:需要速度环计算的电机的结构体
+ * @param [float]	SpeedNow:转速实际值
+ * @return: [float] PID计算结果
+ * @author：ych
+ */
+float Motor_SpeedPIDCalculate(Motor_t *Motor, float SpeedNow)
+{
+    float Error;
+    Error = Motor->spe.set - SpeedNow;
+    if (Motor->dji.reverse_flag)
+        PID_Calculate(&Motor->spe, -Error); // 完成PID计算
+    else
+        PID_Calculate(&Motor->spe, Error); // 完成PID计算
+    return Motor->spe.out;
+}
+/**
+ * @brief：电机转速设定值绝对式修改
+ * @param [Motor_t*]	Motor:需要修改的电机的结构体
+ * @param [float]	Set:新的转速设定值
+ * @author：ych
+ */
+void Motor_Write_SetSpeed_ABS(Motor_t *Motor, float Set)
+{
+    Motor->spe.set = Set;
+}
+/**
+ * @brief：电机转动量计算（跨圈处理）
+ * @param float Angle1: 要转到的角度对应的数值
+ * @param float Angle2: 转动起点数值
+ * @param float Round_Len: 电机整圈对应的数值
+ * @return float: 输出从Angle2到Angle1需要的最短路径的距离长度, 范围 负半圈~正半圈，正好半圈时取正半圈
+ * @author：ych
+ */
+float Motor_Get_DeltaAngle(float Angle1, float Angle2, float Round_Len)
+{
+    float DAngle;// HalfRound;
+		float HalfRound;
+    DAngle = Angle1 - Angle2;
+    HalfRound = Round_Len / 2;
+    if (DAngle >= 0)
+    {
+        if (DAngle > HalfRound)
+            DAngle -= Round_Len;
+    }
+    else
+    {
+        if (DAngle <= -HalfRound)
+            DAngle += Round_Len;
+    }
+    return DAngle;
+}
+/**
+ * @brief：电机角度设定值读取
+ * @param [Motor_t*]	Motor:需要读取的电机的结构体
+ * @return [float] 读取角度设定值
+ * @author：ych
+ */
+float Motor_Read_SetAngle(Motor_t *Motor)
+{
+    return Motor->ang.set;
+}
+/**
+ * @brief：电机角度环pid输出的计算，不会修改速度环设定值
+ * @brief：调用过程中需要保证同一个电机的设定值和传入的实际值的单位相同
+ * @param [Motor_t*]	Motor:需要角度环计算的电机的结构体
+ * @param [float]	AngleNow:角度实际值
+ * @return: [float] PID计算结果
+ * @author：ych
+ */
+float Motor_AnglePIDCalculate(Motor_t *Motor, float AngleNow)
+{
+    float Error;
+
+    if (Motor->dji.Round_Len != 0)
+    {                                                     // 电机结构体初始化正常，可以进行跨圈处理计算，获得PID需要的Error
+        if (Motor->dji.Angle_CtrlMode != ANGLE_CTRL_FULL) // 计算偏差量Error
+            Error = Motor_Get_DeltaAngle(Motor->ang.set, AngleNow, Motor->dji.Round_Len);
+        else
+        { // 如果电机使用的是可跨圈角度环模式，则不进行跨圈计算
+            Error = Motor_Read_SetAngle(Motor) - AngleNow;
+        }
+    }
+    else
+        // 电机结构体没有设定闭环整圈长度 参数，可能没有调用电机结构体初始化函数。
+        while (1)
+            continue;
+    PID_Calculate(&Motor->ang, Error); // 完成PID计算
+    return Motor->ang.out;
+}
+/**
+ * @brief：电机角度设定值绝对式修改
+ * @param [Motor_t*]	Motor:需要修改的电机的结构体
+ * @param [float]	Set:新的角度设定值
+ * @author：ych
+ */
+void Motor_Write_SetAngle_ABS(Motor_t *Motor, float Set)
+{
+    float SetCal = Set;
+    if (Motor->dji.Angle_CtrlMode != ANGLE_CTRL_FULL) // 如果是不跨圈的闭环模式
+    {
+        if (SetCal > Motor->dji.Set_MAX) // 设定值不可跨圈
+        {
+            do
+            {
+                SetCal -= Motor->dji.Round_Len;
+            } while (SetCal > Motor->dji.Set_MAX);
+        }
+        else if (SetCal <= Motor->dji.Set_MIN) // 设定值不可跨圈
+        {
+            do
+            {
+                SetCal += Motor->dji.Round_Len;
+            } while (SetCal <= Motor->dji.Set_MIN);
+        }
+    }
+    Motor->ang.set = SetCal;
+}
+/**
+ * @brief 大机械臂电机闭环控制
+ * @param ArmMotor
+ * @param BoomStateData
+ */
+void BoomMotor_Ctrl(ArmMotor_e ArmMotor,
+                    BoomState_Data_s *BoomStateData)
+{
+    switch (ArmMotor)
+    {
+    case BoomLeft:
+        Motor_Write_SetAngle_ABS(&Boomleft_Motor, BoomStateData->AngleSetPlan.BoomLeft); // 设定值
+        Motor_AnglePIDCalculate(&Boomleft_Motor, BoomStateData->AngleNowFilter.BoomLeft);
+        Motor_Write_SetSpeed_ABS(&Boomleft_Motor,
+                                 Boomleft_Motor.ang.out +
+                                     BoomStateData->SpeedFeedforward.BoomLeft);
+        Motor_SpeedPIDCalculate(&Boomleft_Motor,
+                                BoomStateData->SpeedNowFilter.BoomLeft);
+        break;
+    case BoomRight:
+        Motor_Write_SetAngle_ABS(&Boomright_Motor, BoomStateData->AngleSetPlan.BoomRight); // 设定值
+        Motor_AnglePIDCalculate(&Boomright_Motor,
+                                BoomStateData->AngleNowFilter.BoomRight);
+        // Motor_Write_SetSpeed_ABS(&BoomPitch1Motor_Str,
+        //                          BoomPitch1Motor_Str.ang.out);
+        Motor_Write_SetSpeed_ABS(&Boomright_Motor,
+                                 Boomright_Motor.ang.out +
+                                     BoomStateData->SpeedFeedforward.BoomRight);
+        Motor_SpeedPIDCalculate(&Boomright_Motor,
+                                BoomStateData->SpeedNowFilter.BoomRight);
+        break;
+    case BoomYaw:
+        Motor_Write_SetAngle_ABS(&Boomyaw_Motor, BoomStateData->AngleSetPlan.BoomYaw); // 设定值
+        Motor_AnglePIDCalculate(&Boomyaw_Motor, BoomStateData->AngleNowFilter.BoomYaw);
+        // Motor_Write_SetSpeed_ABS(&BoomPitch2Motor_Str,
+        //                          BoomPitch2Motor_Str.ang.out);
+        Motor_Write_SetSpeed_ABS(&Boomyaw_Motor,
+                                 Boomyaw_Motor.ang.out +
+                                     BoomStateData->SpeedFeedforward.BoomYaw);
+        Motor_SpeedPIDCalculate(&Boomyaw_Motor,
+                                BoomStateData->SpeedNowFilter.BoomYaw);
+    default:
+        break;
+    }
+}
 /**
  * @brief：返回转速数据 不同控制模式下返回的数据不同
  * @param [Motor_t*]	Motor:需要读取的电机的结构体
@@ -56,32 +254,7 @@ float Motor_Read_NowAngle(Motor_t *Motor)
         return 0;
     }
 }
-/**
- * @brief：电机转动量计算（跨圈处理）
- * @param float Angle1: 要转到的角度对应的数值
- * @param float Angle2: 转动起点数值
- * @param float Round_Len: 电机整圈对应的数值
- * @return float: 输出从Angle2到Angle1需要的最短路径的距离长度, 范围 负半圈~正半圈，正好半圈时取正半圈
- * @author：ych
- */
-float Motor_Get_DeltaAngle(float Angle1, float Angle2, float Round_Len)
-{
-    float DAngle;// HalfRound;
-		float HalfRound;
-    DAngle = Angle1 - Angle2;
-    HalfRound = Round_Len / 2;
-    if (DAngle >= 0)
-    {
-        if (DAngle > HalfRound)
-            DAngle -= Round_Len;
-    }
-    else
-    {
-        if (DAngle <= -HalfRound)
-            DAngle += Round_Len;
-    }
-    return DAngle;
-}
+
 /**
  * @brief  对反馈角度进行换算为0-8191
  * @param  motor：电机数据结构体
@@ -152,18 +325,32 @@ void motor_readmsg_DM(rt_uint8_t rxmsg[], DjiMotor_t *motor)
     motor_angle_adjust(motor);
     motor->FreshTick = rt_tick_get();
 }
-float AngleNow;
-float SpeedNow;
+
 
 /**
  * @brief 达妙电机报文接收处理函数
  */
-static void DM_MotorCan_Receive(Motor_t *Motor,
+static void DM_MotorCan_Receive(int id,Motor_t *Motor,
                                 rt_uint8_t rxmsg[])
 {
        motor_readmsg_DM(rxmsg, &Motor->dji);
-	     AngleNow = Motor_Read_NowAngle(Motor);
-	     SpeedNow = Motor_Read_NowSpeed(Motor);
+	switch(id)
+	{
+		case BOOM_LEFTID:
+	     rec_data_s.AngleNowBOOM_LEFT = Motor_Read_NowAngle(Motor);
+	     rec_data_s.SpeedNowBOOM_LEFT = Motor_Read_NowSpeed(Motor);
+			break;
+		case BOOM_RIGHTID:
+	     rec_data_s.AngleNowBOOM_RIGHT = Motor_Read_NowAngle(Motor);
+	     rec_data_s.SpeedNowBOOM_RIGHT = Motor_Read_NowSpeed(Motor);
+			break;
+		case BOOM_YAWID:
+	     rec_data_s.AngleNowBOOM_YAW = Motor_Read_NowAngle(Motor);
+	     rec_data_s.SpeedNowBOOM_YAW = Motor_Read_NowSpeed(Motor);
+			break;
+		default:
+			break;
+	}
 }
 /**
  * @brief 达妙电机使能函数//每次上电都需要使能
@@ -230,17 +417,17 @@ static void can_rx_thread(void *parameter)
         {
         case BOOM_LEFTID: // 大机械臂Yaw轴电机
 //					  Boom_Left = rxmsg;
-            DM_MotorCan_Receive(&Boomleft_Motor,
+            DM_MotorCan_Receive(BOOM_LEFTID,&Boomleft_Motor,
                                 rxmsg.data);
             break;
         case BOOM_RIGHTID: // 大机械臂Pitch1轴电机
 //						 Boom_Right = rxmsg;
-            DM_MotorCan_Receive(&Boomright_Motor,
+            DM_MotorCan_Receive(BOOM_RIGHTID,&Boomright_Motor,
                                 rxmsg.data);
             break;
         case BOOM_YAWID: // 小机械臂Pitch轴电机
 //						 Boom_Yaw = rxmsg;
-            DM_MotorCan_Receive(&Boomyaw_Motor,
+            DM_MotorCan_Receive(BOOM_YAWID,&Boomyaw_Motor,
                                 rxmsg.data);
             break;
         default:
@@ -412,6 +599,12 @@ motor_init_DM(&Boomyaw_Motor, 0, // 控制th4角度电机
                   ANGLE_CTRL_FULL,
                   A4310_ENCODERLEN,
                   180, -180, 0);
+    pid_init(&Boomleft_Motor.ang, 20, 0.1, 0, 5, 20, -20);
+    pid_init(&Boomleft_Motor.spe, 150, 0, 0, 0, 500, -500);
+    pid_init(&Boomright_Motor.ang, 20, 0.1, 0, 5, 20, -20);
+    pid_init(&Boomright_Motor.spe, 150, 0, 0, 0, 500, -500);
+    pid_init(&Boomyaw_Motor.ang, 20, 0.1, 0, 5, 20, -20);
+    pid_init(&Boomyaw_Motor.spe, 150, 0, 0, 0, 500, -500);
 
 }
 void can_init(void)
