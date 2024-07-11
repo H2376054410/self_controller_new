@@ -17,7 +17,14 @@ static struct rt_timer timer1;				/*定时器1*/
 rec_data rec_data_s;
 can_msg Boom_Left,Boom_Right,Boom_Yaw;
 Motor_t Boomleft_Motor,Boomright_Motor,Boomyaw_Motor;
-
+BoomMotor_s BoomCompension;
+void ArmMotorinput_Calculate(BoomMotor_s *Boom_in,
+                             BoomMotor_s *Boom_out)
+{
+	Boom_out->BoomLeft = Boomleft_Motor.spe.out+Boom_in->BoomLeft;
+	Boom_out->BoomRight = Boomright_Motor.spe.out+Boom_in->BoomRight;
+	Boom_out->BoomYaw = Boomyaw_Motor.spe.out+Boom_in->BoomYaw;
+}
 /**
  * @brief 对Boom电机角度值及速度值进行滤波
  * @param BoomStateData
@@ -584,27 +591,27 @@ void motor_init_DM(Motor_t *motor, rt_uint32_t ID, float ratio, Angle_CtrlMode_E
 }
 void motor_init(void)
 {
-motor_init_DM(&Boomleft_Motor, 0, // 控制th4角度电机
+motor_init_DM(&Boomleft_Motor, 1, // 控制th4角度电机
                   1,
                   ANGLE_CTRL_FULL,
                   A4310_ENCODERLEN,
-                  180, -180, 0);
-motor_init_DM(&Boomright_Motor, 0, // 控制th4角度电机
+                  180, -180, 1);
+motor_init_DM(&Boomright_Motor, 2, // 控制th4角度电机
                   1,
                   ANGLE_CTRL_FULL,
                   A4310_ENCODERLEN,
-                  180, -180, 0);
-motor_init_DM(&Boomyaw_Motor, 0, // 控制th4角度电机
+                  180, -180, 1);
+motor_init_DM(&Boomyaw_Motor, 3, // 控制th4角度电机
                   1,
                   ANGLE_CTRL_FULL,
                   A4310_ENCODERLEN,
-                  180, -180, 0);
-    pid_init(&Boomleft_Motor.ang, 20, 0.1, 0, 5, 20, -20);
-    pid_init(&Boomleft_Motor.spe, 150, 0, 0, 0, 500, -500);
-    pid_init(&Boomright_Motor.ang, 20, 0.1, 0, 5, 20, -20);
-    pid_init(&Boomright_Motor.spe, 150, 0, 0, 0, 500, -500);
-    pid_init(&Boomyaw_Motor.ang, 20, 0.1, 0, 5, 20, -20);
-    pid_init(&Boomyaw_Motor.spe, 150, 0, 0, 0, 500, -500);
+                  180, -180, 1);
+    pid_init(&Boomleft_Motor.ang, 2, 0.1, 0, 1, 4, -4);
+    pid_init(&Boomleft_Motor.spe, 2, 0, 0, 0, 20, -20);
+    pid_init(&Boomright_Motor.ang, 5, 0.1, 0, 1, 4, -4);
+    pid_init(&Boomright_Motor.spe, 20, 0, 0, 0, 20, -20);
+    pid_init(&Boomyaw_Motor.ang, 5, 0.1, 0, 1, 4, -4);
+    pid_init(&Boomyaw_Motor.spe, 20, 0, 0, 0, 100, -100);
 
 }
 void can_init(void)

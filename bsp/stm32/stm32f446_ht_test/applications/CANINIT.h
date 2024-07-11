@@ -101,4 +101,6 @@ void motor_init_DM(Motor_t *motor, rt_uint32_t ID, float ratio, Angle_CtrlMode_E
 void BoomMotor_Ctrl(ArmMotor_e ArmMotor,
                     BoomState_Data_s *BoomStateData);
 void BoomMotDataFilter(BoomState_Data_s *BoomStateData);
+void ArmMotorinput_Calculate(BoomMotor_s *Boom_in,
+                             BoomMotor_s *Boom_out);
 #endif

@@ -230,6 +230,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>rec_data_s</ItemText>
         </Ww>
+        <Ww>
+          <count>15</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Boomleft_Motor</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
