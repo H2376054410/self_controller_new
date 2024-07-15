@@ -25,6 +25,16 @@ Boom_States.BoomYaw=0;
 		Boom_Datas.AngleSetPlan.BoomLeft = 150.0f;
 		Boom_Datas.AngleSetPlan.BoomRight = 150.0f;	
 		Boom_Datas.AngleSetPlan.BoomYaw = 150.0f;
+		            /*将机械臂电机速度转换成弧度/s*/
+    UpliftEncoderSpeTorpm(&Boom_Datas.SpeedNow,
+                                 &Boom_Datas.SpeedNow);
+            /*编码器数据处理*/
+    UpliftEncoder_angle(&Boom_Datas.AngleNow,
+                              &Boom_Datas.AngleNow,&Boom_Datas.AngleLast);
+				
+            /*将机械臂电机角度转换成弧度制*/
+    Uplift_angle2rad(&Boom_Datas.AngleNow,
+                            &Boom_Datas.AngleNow);
 		BoomMotDataFilter(&Boom_Datas);
 		//开始控制
 		
@@ -33,12 +43,12 @@ Boom_States.BoomYaw=0;
 		BoomMotor_Ctrl(BoomRight,&Boom_Datas);
 		BoomMotor_Ctrl(BoomYaw,&Boom_Datas);		
 		ArmMotorinput_Calculate(&Boom_Compension,&Boom_Datas.MotorCtrl_Out);
-//		Boom_States.BoomLeft=Boom_Datas.MotorCtrl_Out.BoomLeft;
-//		Boom_States.BoomRight=Boom_Datas.MotorCtrl_Out.BoomRight;
-//		Boom_States.BoomYaw=Boom_Datas.MotorCtrl_Out.BoomYaw;	
-		Boom_States.BoomLeft=-30;
-    Boom_States.BoomRight=20;
-    Boom_States.BoomYaw=20;	
+		Boom_States.BoomLeft=Boom_Datas.MotorCtrl_Out.BoomLeft;
+		Boom_States.BoomRight=Boom_Datas.MotorCtrl_Out.BoomRight;
+		Boom_States.BoomYaw=Boom_Datas.MotorCtrl_Out.BoomYaw;	
+//		Boom_States.BoomLeft=-30;
+//    Boom_States.BoomRight=20;
+//    Boom_States.BoomYaw=20;	
 	  can_save_handle(&Boom_States);
 	}
 	

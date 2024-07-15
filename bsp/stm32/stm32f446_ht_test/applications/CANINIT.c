@@ -25,6 +25,63 @@ void ArmMotorinput_Calculate(BoomMotor_s *Boom_in,
 	Boom_out->BoomRight = Boomright_Motor.spe.out+Boom_in->BoomRight;
 	Boom_out->BoomYaw = Boomyaw_Motor.spe.out+Boom_in->BoomYaw;
 }
+void UpliftEncoderSpeTorpm(BoomMotor_s *Spe_encoder,
+                          BoomMotor_s *Speed_rad)
+{
+    Speed_rad->BoomLeft=PI*(Spe_encoder->BoomLeft/V_DM4310_ENCODERLEN*V_DM4310_MAX)/30.0f ;	
+    Speed_rad->BoomRight =PI* (Spe_encoder->BoomRight/V_DM4310_ENCODERLEN*V_DM4310_MAX)/30.0f;
+    Speed_rad->BoomYaw =PI* (Spe_encoder->BoomYaw/V_DM4310_ENCODERLEN*V_DM4310_MAX)/30.0f;
+}
+uint8_t last_data_get=0;
+/**
+ * @brief 图传电机从编码器值转换到实际角度
+ * @param UpliftAngle_in
+ * @param Imagerad_out
+ */
+ void UpliftEncoder_angle(BoomMotor_s *UpliftAngle_in,
+                     BoomMotor_s *UpliftAngle_out,BoomMotor_s *UpliftAngle_last)
+{
+    UpliftAngle_out->BoomLeft =UpliftAngle_in->BoomLeft*360.0f/A4310_ENCODERLEN;
+    UpliftAngle_out->BoomYaw =UpliftAngle_in->BoomYaw*360.0f/A4310_ENCODERLEN;
+    UpliftAngle_out->BoomRight =UpliftAngle_in->BoomRight*360.0f/A4310_ENCODERLEN;
+    if(last_data_get=1)
+    {
+    if(fabsf(UpliftAngle_last->BoomLeft-UpliftAngle_out->BoomLeft)>330.0f)
+    {
+        if(UpliftAngle_last->BoomLeft>100.0f) UpliftAngle_out->BoomLeft = UpliftAngle_out->BoomLeft+360.0f;
+        else UpliftAngle_out->BoomLeft = UpliftAngle_out->BoomLeft-360.0f;
+    }
+    if(fabsf(UpliftAngle_last->BoomRight-UpliftAngle_out->BoomRight)>330.0f)
+    {
+        if(UpliftAngle_last->BoomRight>100.0f) UpliftAngle_out->BoomRight = UpliftAngle_out->BoomRight+360.0f;
+        else UpliftAngle_out->BoomRight = UpliftAngle_out->BoomRight-360.0f;        
+    }
+    if(fabsf(UpliftAngle_last->BoomYaw-UpliftAngle_out->BoomYaw)>330.0f)
+    {
+        if(UpliftAngle_last->BoomYaw>100.0f) UpliftAngle_out->BoomYaw = UpliftAngle_out->BoomYaw+360.0f;
+        else UpliftAngle_out->BoomYaw = UpliftAngle_out->BoomYaw-360.0f;        
+    }
+    }
+    else
+    {
+        last_data_get++;
+    }
+    UpliftAngle_last->BoomLeft = UpliftAngle_out->BoomLeft;
+    UpliftAngle_last->BoomRight = UpliftAngle_out->BoomRight;    
+    UpliftAngle_last->BoomYaw = UpliftAngle_out->BoomYaw;
+}
+/**
+ * @brief 电机位置信息由角度转向弧度
+ * @param UpliftAngle_in
+ * @param Upliftrad_out
+ */
+void Uplift_angle2rad(BoomMotor_s *UpliftAngle_in,
+                     BoomMotor_s *Upliftrad_out)
+{
+    Upliftrad_out->BoomLeft = DEG2RAD_f(UpliftAngle_in->BoomLeft);
+	    Upliftrad_out->BoomYaw = DEG2RAD_f(UpliftAngle_in->BoomYaw);
+    Upliftrad_out->BoomRight = DEG2RAD_f(UpliftAngle_in->BoomRight);	
+}
 /**
  * @brief 对Boom电机角度值及速度值进行滤波
  * @param BoomStateData
@@ -57,6 +114,8 @@ void BoomMotDataFilter(BoomState_Data_s *BoomStateData)
                       BoomStateData->SpeedNow.BoomYaw, 0.8f);
 
 }
+
+
 /**
  * @brief：电机转速环pid输出的计算
  * @param [Motor_t*]	Motor:需要速度环计算的电机的结构体
@@ -593,9 +652,9 @@ void motor_init(void)
 {
 motor_init_DM(&Boomleft_Motor, 1, // 控制th4角度电机
                   1,
-                  ANGLE_CTRL_FULL,
+                  ANGLE_CTRL_ABS,
                   A4310_ENCODERLEN,
-                  180, -180, 1);
+                  360, 0, 1);
 motor_init_DM(&Boomright_Motor, 2, // 控制th4角度电机
                   1,
                   ANGLE_CTRL_FULL,

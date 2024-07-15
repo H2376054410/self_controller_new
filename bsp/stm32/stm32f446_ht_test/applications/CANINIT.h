@@ -11,7 +11,9 @@
 #define BOOM_LEFTID 1
 #define BOOM_RIGHTID 2
 #define BOOM_YAWID 3
-#define A4310_ENCODERLEN 36001
+#define A4310_ENCODERLEN 65535
+#define V_DM4310_ENCODERLEN 4095
+#define V_DM4310_MAX 60
 typedef  struct rt_can_msg  can_msg;
 
 typedef enum
@@ -87,6 +89,7 @@ typedef struct
     BoomMotor_s SpeedFeedforward;       // 设定值规划后的速度前馈
     BoomMotor_s Compensation;  // 力矩补偿
     BoomMotor_s MotorCtrl_Out; // 设定值规划后的速度前馈
+	  BoomMotor_s AngleLast;
 } BoomState_Data_s;
 extern float AngleNow;
 extern float SpeedNow;
@@ -103,4 +106,10 @@ void BoomMotor_Ctrl(ArmMotor_e ArmMotor,
 void BoomMotDataFilter(BoomState_Data_s *BoomStateData);
 void ArmMotorinput_Calculate(BoomMotor_s *Boom_in,
                              BoomMotor_s *Boom_out);
+void Uplift_angle2rad(BoomMotor_s *UpliftAngle_in,
+                     BoomMotor_s *Upliftrad_out);
+ void UpliftEncoder_angle(BoomMotor_s *UpliftAngle_in,
+                     BoomMotor_s *UpliftAngle_out,BoomMotor_s *UpliftAngle_last);
+ void UpliftEncoderSpeTorpm(BoomMotor_s *Spe_encoder,
+                          BoomMotor_s *Speed_rad);
 #endif
