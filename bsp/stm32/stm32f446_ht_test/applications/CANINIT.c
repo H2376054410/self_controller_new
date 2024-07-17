@@ -657,20 +657,20 @@ motor_init_DM(&Boomleft_Motor, 1, // 控制th4角度电机
                   360, 0, 1);
 motor_init_DM(&Boomright_Motor, 2, // 控制th4角度电机
                   1,
-                  ANGLE_CTRL_FULL,
+                  ANGLE_CTRL_ABS,
                   A4310_ENCODERLEN,
-                  180, -180, 1);
+                  360, 0, 1);
 motor_init_DM(&Boomyaw_Motor, 3, // 控制th4角度电机
                   1,
-                  ANGLE_CTRL_FULL,
+                  ANGLE_CTRL_ABS,
                   A4310_ENCODERLEN,
-                  180, -180, 1);
+                  360, 0, 1);
     pid_init(&Boomleft_Motor.ang, 2, 0.1, 0, 1, 4, -4);
     pid_init(&Boomleft_Motor.spe, 2, 0, 0, 0, 20, -20);
-    pid_init(&Boomright_Motor.ang, 5, 0.1, 0, 1, 4, -4);
-    pid_init(&Boomright_Motor.spe, 20, 0, 0, 0, 20, -20);
-    pid_init(&Boomyaw_Motor.ang, 5, 0.1, 0, 1, 4, -4);
-    pid_init(&Boomyaw_Motor.spe, 20, 0, 0, 0, 100, -100);
+    pid_init(&Boomright_Motor.ang, 2, 0.1, 0, 1, 4, -4);
+    pid_init(&Boomright_Motor.spe, 2, 0, 0, 0, 20, -20);
+    pid_init(&Boomyaw_Motor.ang, 2, 0.1, 0, 1, 4, -4);
+    pid_init(&Boomyaw_Motor.spe, 2, 0, 0, 0, 20, -20);
 
 }
 void can_init(void)

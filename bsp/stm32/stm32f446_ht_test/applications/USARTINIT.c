@@ -246,7 +246,7 @@ static void usart4_thread_entry(void *parameter)
     temp=Get_CRC16_Check_Sum(sendbuff,37,CRC_INIT);
     sendbuff[38]=temp>>8;
     sendbuff[37]=temp;
-			rt_device_write(serial_u4, 0, &sendbuff, sizeof(sendbuff));
+		rt_device_write(serial_u4, 0, &sendbuff, sizeof(sendbuff));
 	   }
 }
 static void usart5_thread_entry(void *parameter)
@@ -316,7 +316,7 @@ void uart_init(void)
   }
 		if (!serial_u2)
   {
-        rt_kprintf("find %s failed!\n", UART_NAME1);
+        rt_kprintf("find %s failed!\n", UART_NAME2);
   }	
 			if (!serial_u3)
   {
@@ -373,27 +373,27 @@ void uart_init(void)
 	  rt_sem_init(&rx_sem_u4, "rx_usart4", 0, RT_IPC_FLAG_FIFO);
 	  rt_sem_init(&rx_sem_u5, "rx_usart5", 0, RT_IPC_FLAG_FIFO);
 	    /* 初始化消息队列 */
-    rt_mq_init(&rx_mq1, "rx_mq",
+    rt_mq_init(&rx_mq1, "rx_mq1",
                msg_pool1,              /* 存放消息的缓冲区 */
                sizeof(struct rx_msg), /* 一条消息的最大长度 */
                sizeof(msg_pool1),      /* 存放消息的缓冲区大小 */
                RT_IPC_FLAG_FIFO);     /* 如果有多个线程等待，按照先来先得到的方法分配消息 */
-		rt_mq_init(&rx_mq2, "rx_mq",
+		rt_mq_init(&rx_mq2, "rx_mq2",
                msg_pool2,              /* 存放消息的缓冲区 */
                sizeof(struct rx_msg), /* 一条消息的最大长度 */
                sizeof(msg_pool2),      /* 存放消息的缓冲区大小 */
                RT_IPC_FLAG_FIFO);     /* 如果有多个线程等待，按照先来先得到的方法分配消息 */
-    rt_mq_init(&rx_mq3, "rx_mq",
+    rt_mq_init(&rx_mq3, "rx_mq3",
                msg_pool3,              /* 存放消息的缓冲区 */
                sizeof(struct rx_msg), /* 一条消息的最大长度 */
                sizeof(msg_pool3),      /* 存放消息的缓冲区大小 */
                RT_IPC_FLAG_FIFO);     /* 如果有多个线程等待，按照先来先得到的方法分配消息 */
-    rt_mq_init(&rx_mq4, "rx_mq",
+    rt_mq_init(&rx_mq4, "rx_mq4",
                msg_pool4,              /* 存放消息的缓冲区 */
                sizeof(struct rx_msg), /* 一条消息的最大长度 */
                sizeof(msg_pool4),      /* 存放消息的缓冲区大小 */
                RT_IPC_FLAG_FIFO);     /* 如果有多个线程等待，按照先来先得到的方法分配消息 */
-    rt_mq_init(&rx_mq5, "rx_mq",
+    rt_mq_init(&rx_mq5, "rx_mq5",
                msg_pool5,              /* 存放消息的缓冲区 */
                sizeof(struct rx_msg), /* 一条消息的最大长度 */
                sizeof(msg_pool5),      /* 存放消息的缓冲区大小 */
@@ -410,8 +410,12 @@ void uart_init(void)
 	  rt_device_set_rx_indicate(serial_u3, uart_input3);
 	  rt_device_set_rx_indicate(serial_u4, uart_input4);
 		rt_device_set_rx_indicate(serial_u5, uart_input5);
-//	for(int i = 0;i<1;i++)
-//	rt_device_write(serial_u1, 0, str1, (sizeof(str1)-1));
+
+	rt_device_write(serial_u1, 0, str1, (sizeof(str1)-1));
+
+	rt_device_write(serial_u2, 0, str1, (sizeof(str1)-1));
+	rt_device_write(serial_u4, 0, str, (sizeof(str)-1));
+							 	rt_device_write(serial_u1, 0, str, (sizeof(str)-1));
 
 	    /* 创建 serial 线程 */
    thread1 = rt_thread_create("u1_thread", usart1_thread_entry, RT_NULL, 1024, 25, 10);

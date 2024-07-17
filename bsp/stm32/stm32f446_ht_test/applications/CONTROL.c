@@ -46,9 +46,9 @@ Boom_States.BoomYaw=0;
 		Boom_States.BoomLeft=Boom_Datas.MotorCtrl_Out.BoomLeft;
 		Boom_States.BoomRight=Boom_Datas.MotorCtrl_Out.BoomRight;
 		Boom_States.BoomYaw=Boom_Datas.MotorCtrl_Out.BoomYaw;	
-//		Boom_States.BoomLeft=-30;
-//    Boom_States.BoomRight=20;
-//    Boom_States.BoomYaw=20;	
+		Boom_States.BoomLeft=0;
+    Boom_States.BoomRight=0;
+    Boom_States.BoomYaw=0;	
 	  can_save_handle(&Boom_States);
 	}
 	
