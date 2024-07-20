@@ -1,11 +1,12 @@
 #include "CONTROL.h"
-#include "CANINIT.h"
+
 static struct rt_timer timer_control;				
 struct rt_semaphore control_sem;
 BoomMotor_s Boom_States;
 BoomState_Data_s Boom_Datas;
 BoomMotor_s  Boom_Compension;
-
+BoomMotor_s rad_angle;
+float angle_data[6]={0};
 static void Boom_Control_Thread(void *parameter)
 {
 Boom_States.BoomLeft=0;
@@ -32,23 +33,32 @@ Boom_States.BoomYaw=0;
     UpliftEncoder_angle(&Boom_Datas.AngleNow,
                               &Boom_Datas.AngleNow,&Boom_Datas.AngleLast);
 				
-            /*将机械臂电机角度转换成弧度制*/
+//            /*将机械臂电机角度转换成弧度制*/
     Uplift_angle2rad(&Boom_Datas.AngleNow,
-                            &Boom_Datas.AngleNow);
+                            &rad_angle);
 		BoomMotDataFilter(&Boom_Datas);
 		//开始控制
+		angle_data[0] = Boom_Datas.AngleNowFilter.BoomYaw;
+		angle_data[1] = Boom_Datas.AngleNowFilter.BoomLeft;
+		angle_data[2] = Boom_Datas.AngleNowFilter.BoomRight;
+		
+		
+		ArmComp(&rad_angle,&Boom_Datas.Compensation);
 		
 		
 		BoomMotor_Ctrl(BoomLeft,&Boom_Datas);
 		BoomMotor_Ctrl(BoomRight,&Boom_Datas);
 		BoomMotor_Ctrl(BoomYaw,&Boom_Datas);		
+		
+		
 		ArmMotorinput_Calculate(&Boom_Compension,&Boom_Datas.MotorCtrl_Out);
-		Boom_States.BoomLeft=Boom_Datas.MotorCtrl_Out.BoomLeft;
-		Boom_States.BoomRight=Boom_Datas.MotorCtrl_Out.BoomRight;
-		Boom_States.BoomYaw=Boom_Datas.MotorCtrl_Out.BoomYaw;	
-		Boom_States.BoomLeft=0;
-    Boom_States.BoomRight=0;
-    Boom_States.BoomYaw=0;	
+		
+		
+//		Boom_States.BoomLeft=Boom_Datas.MotorCtrl_Out.BoomLeft;
+//		Boom_States.BoomRight=Boom_Datas.MotorCtrl_Out.BoomRight;
+		Boom_States.BoomYaw=0;	
+		Boom_States.BoomLeft=Boom_Datas.Compensation.BoomLeft;
+    Boom_States.BoomRight=Boom_Datas.Compensation.BoomRight;
 	  can_save_handle(&Boom_States);
 	}
 	

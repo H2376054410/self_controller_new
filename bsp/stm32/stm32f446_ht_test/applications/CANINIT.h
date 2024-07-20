@@ -5,6 +5,7 @@
 #include "pid.h"
 #include "CONTROL.h"
 #include "drv_utils.h"
+#include "math.h"
 #define CAN_DEV_NAME "can1" 
 
 
@@ -15,7 +16,12 @@
 #define V_DM4310_ENCODERLEN 4095
 #define V_DM4310_MAX 60
 typedef  struct rt_can_msg  can_msg;
-
+typedef struct
+{
+    float BoomLeft;
+    float BoomRight;
+    float BoomYaw;
+} BoomMotor_s;
 typedef enum
 {
     // 若切换模式，则需要重新调参数
@@ -112,4 +118,7 @@ void Uplift_angle2rad(BoomMotor_s *UpliftAngle_in,
                      BoomMotor_s *UpliftAngle_out,BoomMotor_s *UpliftAngle_last);
  void UpliftEncoderSpeTorpm(BoomMotor_s *Spe_encoder,
                           BoomMotor_s *Speed_rad);
+void ArmComp(BoomMotor_s *boom_anglenow,
+             BoomMotor_s *boom_compout);
+ 
 #endif

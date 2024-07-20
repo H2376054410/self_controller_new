@@ -206,37 +206,39 @@ static void usart4_thread_entry(void *parameter)
     {
 		rt_sem_take(&rx_sem_u4, RT_WAITING_FOREVER);
 		
-			
+		angle_data[3] =angle3;
+	  angle_data[4] =angle2;		
+		angle_data[5] =angle1;
 		sendbuff[7]=1;
-    sendbuff[8]=((uint8_t*)&angle1)[0];
-    sendbuff[9]=((uint8_t*)&angle1)[1];
-    sendbuff[10]=((uint8_t*)&angle1)[2];
-    sendbuff[11]=((uint8_t*)&angle1)[3];
+    sendbuff[8]=((uint8_t*)&angle_data[0])[0];
+    sendbuff[9]=((uint8_t*)&angle_data[0])[1];
+    sendbuff[10]=((uint8_t*)&angle_data[0])[2];
+    sendbuff[11]=((uint8_t*)&angle_data[0])[3];
 
-    sendbuff[12]=((uint8_t*)&angle2)[0];
-    sendbuff[13]=((uint8_t*)&angle2)[1];
-    sendbuff[14]=((uint8_t*)&angle2)[2];
-    sendbuff[15]=((uint8_t*)&angle2)[3];
+    sendbuff[12]=((uint8_t*)&angle_data[1])[0];
+    sendbuff[13]=((uint8_t*)&angle_data[1])[1];
+    sendbuff[14]=((uint8_t*)&angle_data[1])[2];
+    sendbuff[15]=((uint8_t*)&angle_data[1])[3];
 
-    sendbuff[16]=((uint8_t*)&angle1)[0];
-    sendbuff[17]=((uint8_t*)&angle1)[1];
-    sendbuff[18]=((uint8_t*)&angle1)[2];
-    sendbuff[19]=((uint8_t*)&angle1)[3];
+    sendbuff[16]=((uint8_t*)&angle_data[2])[0];
+    sendbuff[17]=((uint8_t*)&angle_data[2])[1];
+    sendbuff[18]=((uint8_t*)&angle_data[2])[2];
+    sendbuff[19]=((uint8_t*)&angle_data[2])[3];
 
-    sendbuff[20]=((uint8_t*)&angle1)[0];
-    sendbuff[21]=((uint8_t*)&angle1)[1];
-    sendbuff[22]=((uint8_t*)&angle1)[2];
-    sendbuff[23]=((uint8_t*)&angle1)[3];
+    sendbuff[20]=((uint8_t*)&angle_data[3])[0];
+    sendbuff[21]=((uint8_t*)&angle_data[3])[1];
+    sendbuff[22]=((uint8_t*)&angle_data[3])[2];
+    sendbuff[23]=((uint8_t*)&angle_data[3])[3];
 
-    sendbuff[24]=((uint8_t*)&angle1)[0];
-    sendbuff[25]=((uint8_t*)&angle1)[1];
-    sendbuff[26]=((uint8_t*)&angle1)[2];
-    sendbuff[27]=((uint8_t*)&angle1)[3];
+    sendbuff[24]=((uint8_t*)&angle_data[4])[0];
+    sendbuff[25]=((uint8_t*)&angle_data[4])[1];
+    sendbuff[26]=((uint8_t*)&angle_data[4])[2];
+    sendbuff[27]=((uint8_t*)&angle_data[4])[3];
 
-    sendbuff[28]=((uint8_t*)&angle1)[0];
-    sendbuff[29]=((uint8_t*)&angle1)[1];
-    sendbuff[30]=((uint8_t*)&angle1)[2];
-    sendbuff[31]=((uint8_t*)&angle1)[3];
+    sendbuff[28]=((uint8_t*)&angle_data[5])[0];
+    sendbuff[29]=((uint8_t*)&angle_data[5])[1];
+    sendbuff[30]=((uint8_t*)&angle_data[5])[2];
+    sendbuff[31]=((uint8_t*)&angle_data[5])[3];
 
     sendbuff[32] = 0;
     sendbuff[33] = 0;
@@ -353,7 +355,7 @@ void uart_init(void)
     rt_device_control(serial_u3, RT_DEVICE_CTRL_CONFIG, &config3);
 	
 	
-    config4.baud_rate = 9600;      // 修改波特率为 9600
+    config4.baud_rate = 115200;      // 修改波特率为 9600
     config4.data_bits = DATA_BITS_8; // 数据位 9
     config4.stop_bits = STOP_BITS_1; // 停止位 1
     config4.bufsz = 128;             // 修改缓冲区 buff size 为 128
@@ -411,11 +413,10 @@ void uart_init(void)
 	  rt_device_set_rx_indicate(serial_u4, uart_input4);
 		rt_device_set_rx_indicate(serial_u5, uart_input5);
 
-	rt_device_write(serial_u1, 0, str1, (sizeof(str1)-1));
+//	rt_device_write(serial_u1, 0, str1, (sizeof(str1)-1));
 
-	rt_device_write(serial_u2, 0, str1, (sizeof(str1)-1));
+//	rt_device_write(serial_u2, 0, str1, (sizeof(str1)-1));
 	rt_device_write(serial_u4, 0, str, (sizeof(str)-1));
-							 	rt_device_write(serial_u1, 0, str, (sizeof(str)-1));
 
 	    /* 创建 serial 线程 */
    thread1 = rt_thread_create("u1_thread", usart1_thread_entry, RT_NULL, 1024, 25, 10);

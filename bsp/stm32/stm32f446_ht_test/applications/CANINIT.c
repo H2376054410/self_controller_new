@@ -18,12 +18,81 @@ rec_data rec_data_s;
 can_msg Boom_Left,Boom_Right,Boom_Yaw;
 Motor_t Boomleft_Motor,Boomright_Motor,Boomyaw_Motor;
 BoomMotor_s BoomCompension;
+float equencyg1=1;
+/**
+ * @brief 大机械臂pitch1轴静态扭矩补偿
+ * @brief 输入为大机械臂pitch1当前的角度值
+ * @brief 输出为大机械臂pitch1轴静态不动时的补偿扭矩对应的电流设定值
+ */
+static void BoomPitch1_StaticM2(float rad, float *out)
+{
+    float Angle_Temp;          // pitch1角度的余角的绝对值  弧度制
+    float BoomPitch1_StaticM2; // 电机的补偿扭矩
+
+    Angle_Temp = fabsf(rad)+PI/6.0f;;
+	  if(Angle_Temp>PI/2.0f)
+		{
+			equencyg1 = 4.5;
+		}
+		else
+		{
+		equencyg1 = 3.5;
+		}
+    BoomPitch1_StaticM2 = (float)((9.8f * equencyg1) * cos(Angle_Temp));
+    BoomPitch1_StaticM2 = (float)(equencyg1 * BoomPitch1_StaticM2); // 2.1
+	if(fabsf(rad)>(PI/3.0f))
+    BoomPitch1_StaticM2 = -1.0f*fabsf(BoomPitch1_StaticM2);
+	else
+	{
+    BoomPitch1_StaticM2 = fabsf(BoomPitch1_StaticM2);		
+	}
+	  if(BoomPitch1_StaticM2<-150.0f)
+		{
+			BoomPitch1_StaticM2=-150.0f;
+		}
+		else if(BoomPitch1_StaticM2>130)
+		{
+			BoomPitch1_StaticM2=130.0f;		
+		}
+    *out = BoomPitch1_StaticM2;
+}
+float equencyg2 =3;
+float mid1;
+/**
+ * @brief 大机械臂pitch2轴静态扭矩补偿
+ * @brief 输入为大机械臂pitch1,pitch2当前的角度值
+ * @brief 输出为大机械臂pitch2轴静态不动时的补偿扭矩对应的电流设定值
+ */
+static void BoomPitch2_StaticM3(float rad1, float rad2,float *out)
+{
+    float BoomPitch2_StaticM3; // 电机的补偿扭矩
+    float theta1,theta2;
+	  theta1 = fabsf(rad1) + PI/6.0f;
+	  theta2 = fabsf(rad2) + PI/6.0f;
+    BoomPitch2_StaticM3 = (9.8f * equencyg2) * cos(theta2-theta1);
+	  mid1 = theta2-theta1;
+    *out = BoomPitch2_StaticM3;
+}
+/**
+ * @brief   机械臂电机力矩补偿
+ * @param   angle_now
+ * @param   comp_out
+ */
+void ArmComp(BoomMotor_s *boom_anglenow,
+             BoomMotor_s *boom_compout)
+{
+    BoomPitch1_StaticM2(boom_anglenow->BoomLeft, &boom_compout->BoomLeft);
+    BoomPitch2_StaticM3(boom_anglenow->BoomLeft, boom_anglenow->BoomRight,&boom_compout->BoomRight);
+}
 void ArmMotorinput_Calculate(BoomMotor_s *Boom_in,
                              BoomMotor_s *Boom_out)
 {
-	Boom_out->BoomLeft = Boomleft_Motor.spe.out+Boom_in->BoomLeft;
-	Boom_out->BoomRight = Boomright_Motor.spe.out+Boom_in->BoomRight;
-	Boom_out->BoomYaw = Boomyaw_Motor.spe.out+Boom_in->BoomYaw;
+//	Boom_out->BoomLeft = Boomleft_Motor.spe.out+Boom_in->BoomLeft;
+//	Boom_out->BoomRight = Boomright_Motor.spe.out+Boom_in->BoomRight;
+//	Boom_out->BoomYaw = Boomyaw_Motor.spe.out+Boom_in->BoomYaw;
+		Boom_out->BoomLeft = Boomleft_Motor.spe.out;
+	Boom_out->BoomRight = Boomright_Motor.spe.out;
+	Boom_out->BoomYaw = Boomyaw_Motor.spe.out;
 }
 void UpliftEncoderSpeTorpm(BoomMotor_s *Spe_encoder,
                           BoomMotor_s *Speed_rad)
@@ -44,7 +113,7 @@ uint8_t last_data_get=0;
     UpliftAngle_out->BoomLeft =UpliftAngle_in->BoomLeft*360.0f/A4310_ENCODERLEN;
     UpliftAngle_out->BoomYaw =UpliftAngle_in->BoomYaw*360.0f/A4310_ENCODERLEN;
     UpliftAngle_out->BoomRight =UpliftAngle_in->BoomRight*360.0f/A4310_ENCODERLEN;
-    if(last_data_get=1)
+    if(last_data_get==1)
     {
     if(fabsf(UpliftAngle_last->BoomLeft-UpliftAngle_out->BoomLeft)>330.0f)
     {
