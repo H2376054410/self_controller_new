@@ -196,8 +196,14 @@ static void usart3_thread_entry(void *parameter)
 				}
 	   }
 }
+int time_frequency=0;
+int time_frequency1=0;
+float a;
 static void usart4_thread_entry(void *parameter)
 {
+	
+	rt_tick_t tick1 = rt_tick_get();
+	rt_tick_t tick2;
     struct rx_msg msg;
     rt_err_t result;
 	  uint16_t temp=0;
@@ -205,7 +211,9 @@ static void usart4_thread_entry(void *parameter)
     while (1)
     {
 		rt_sem_take(&rx_sem_u4, RT_WAITING_FOREVER);
-		
+		time_frequency++;
+			tick2 = rt_tick_get();
+			a=time_frequency/(float)(tick2-tick1);
 		angle_data[3] =angle3;
 	  angle_data[4] =angle2;		
 		angle_data[5] =angle1;
@@ -249,6 +257,7 @@ static void usart4_thread_entry(void *parameter)
     sendbuff[38]=temp>>8;
     sendbuff[37]=temp;
 		rt_device_write(serial_u4, 0, &sendbuff, sizeof(sendbuff));
+		time_frequency1++;
 	   }
 }
 static void usart5_thread_entry(void *parameter)
@@ -422,7 +431,7 @@ void uart_init(void)
    thread1 = rt_thread_create("u1_thread", usart1_thread_entry, RT_NULL, 1024, 25, 10);
    thread2 = rt_thread_create("u2_thread", usart2_thread_entry, RT_NULL, 1024, 25, 10);
 	 thread3 = rt_thread_create("u3_thread", usart3_thread_entry, RT_NULL, 1024, 25, 10);
-	 thread4 = rt_thread_create("u4_thread", usart4_thread_entry, RT_NULL, 1024, 25, 10);
+	 thread4 = rt_thread_create("u4_thread", usart4_thread_entry, RT_NULL, 2048, 25, 20);
 	 thread5 = rt_thread_create("u5_thread", usart5_thread_entry, RT_NULL, 1024, 25, 10);
     /* 创建成功则启动线程 */
     if (thread1 != RT_NULL)
