@@ -135,7 +135,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name></Name>
+          <Name>d</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -269,6 +269,11 @@
           <count>22</count>
           <WinNumber>1</WinNumber>
           <ItemText>time_frequency1,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>23</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>time1_period</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>

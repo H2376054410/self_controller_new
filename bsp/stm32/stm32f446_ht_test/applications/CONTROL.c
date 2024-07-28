@@ -87,7 +87,7 @@ if (ctrl_thread != RT_NULL)
 	rt_timer_init(&timer_control, "timer_Control",	   /* 定时器名字是 timer1 */
 				  control_timeout,				   /* 超时时回调的处理函数 */
 				  RT_NULL,				   /* 超时函数的入口参数 */
-				  1,					   /* 定时长度，以 OS Tick 为单位，即 10 个 OS Tick */
+				  30,					   /* 定时长度，以 OS Tick 为单位，即 10 个 OS Tick */
 				  RT_TIMER_FLAG_PERIODIC); /* 周期性定时器 */
 
 	rt_timer_start(&timer_control);

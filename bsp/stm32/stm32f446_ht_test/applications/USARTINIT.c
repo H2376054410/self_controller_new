@@ -22,6 +22,7 @@ float angle1;
 float angle2;
 float angle3;
 float angle5;
+float time1_period = 27;
 /* 消息队列控制块 */
 static struct rt_messagequeue rx_mq1;
 static struct rt_messagequeue rx_mq2;
@@ -459,7 +460,7 @@ void uart_init(void)
 	rt_timer_init(&time_usart, "timer_usart",	   /* 定时器名字是 timer1 */
 				  timeout_usart,				   /* 超时时回调的处理函数 */
 				  RT_NULL,				   /* 超时函数的入口参数 */
-				  1,					   /* 定时长度，以 OS Tick 为单位，即 10 个 OS Tick */
+				  time1_period,					   /* 定时长度，以 OS Tick 为单位，即 10 个 OS Tick */
 				  RT_TIMER_FLAG_PERIODIC); /* 周期性定时器 */
 
 	rt_timer_start(&time_usart);
