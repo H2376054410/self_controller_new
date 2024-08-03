@@ -151,13 +151,21 @@ static void usart1_thread_entry(void *parameter)
 				}
 	   }
 }
+int time_frequency3 =0;
+float try1;
+rt_tick_t tick1,tick2;
 static void usart2_thread_entry(void *parameter)
 {
     struct rx_msg msg;
     rt_err_t result;
     rt_uint32_t rx_length;
+	tick1 = rt_tick_get();
     while (1)
     {
+			tick2 = rt_tick_get();
+			
+			time_frequency3++;
+			try1 = (float)(tick2-tick1)/time_frequency3;
         rt_memset(&msg, 0, sizeof(msg));
         /* 从消息队列中读取消息*/
         result = rt_mq_recv(&rx_mq2, &msg, sizeof(msg), 200);
@@ -297,7 +305,7 @@ static char msg_pool5[256];
 void uart_init(void)
 {
   char str[] = "hello RT-Thread!\r\n";
-	char str1[] = "AT+MRATE=100\r\n";
+	char str1[] = "AT+MRATE=75\r\n";
 	char str2[] = "AT+MODE=1\r\n";
 	char str3[] = "AT+PRATE=100\r\n";
 	sendbuff[0]=0xA5;
@@ -423,10 +431,10 @@ void uart_init(void)
 	  rt_device_set_rx_indicate(serial_u4, uart_input4);
 		rt_device_set_rx_indicate(serial_u5, uart_input5);
 
-//	rt_device_write(serial_u1, 0, str1, (sizeof(str1)-1));
+	rt_device_write(serial_u1, 0, str1, (sizeof(str1)-1));
 
-//	rt_device_write(serial_u2, 0, str1, (sizeof(str1)-1));
-	rt_device_write(serial_u4, 0, str, (sizeof(str)-1));
+	rt_device_write(serial_u2, 0, str1, (sizeof(str1)-1));
+	rt_device_write(serial_u3, 0, str1, (sizeof(str1)-1));
 
 	    /* 创建 serial 线程 */
    thread1 = rt_thread_create("u1_thread", usart1_thread_entry, RT_NULL, 1024, 25, 10);
