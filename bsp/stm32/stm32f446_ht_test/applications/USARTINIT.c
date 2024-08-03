@@ -305,9 +305,10 @@ static char msg_pool5[256];
 void uart_init(void)
 {
   char str[] = "hello RT-Thread!\r\n";
-	char str1[] = "AT+MRATE=75\r\n";
+	char str1[] = "AT+MRATE=10\r\n";
 	char str2[] = "AT+MODE=1\r\n";
 	char str3[] = "AT+PRATE=100\r\n";
+	char str4[] = "AT+UART=6\r\n";
 	sendbuff[0]=0xA5;
   sendbuff[1]=(int16_t)(data_length);;
   sendbuff[2]=(int16_t)(data_length)>>8;
@@ -351,21 +352,21 @@ void uart_init(void)
         rt_kprintf("find %s failed!\n", UART_NAME5);
   }
 	
-    config1.baud_rate = 9600;      // 修改波特率为 9600
+    config1.baud_rate = 115200;      // 修改波特率为 9600
     config1.data_bits = DATA_BITS_8; // 数据位 9
     config1.stop_bits = STOP_BITS_1; // 停止位 1
     config1.bufsz = 128;             // 修改缓冲区 buff size 为 128
     config1.parity = PARITY_NONE;    
     rt_device_control(serial_u1, RT_DEVICE_CTRL_CONFIG, &config1);
 	
-    config2.baud_rate = 9600;      // 修改波特率为 9600
+    config2.baud_rate = 115200;      // 修改波特率为 9600
     config2.data_bits = DATA_BITS_8; // 数据位 9
     config2.stop_bits = STOP_BITS_1; // 停止位 1
     config2.bufsz = 128;             // 修改缓冲区 buff size 为 128
     config2.parity = PARITY_NONE;    
     rt_device_control(serial_u2, RT_DEVICE_CTRL_CONFIG, &config2);
 	
-    config3.baud_rate = 9600;      // 修改波特率为 9600
+    config3.baud_rate = 115200;      // 修改波特率为 9600
     config3.data_bits = DATA_BITS_8; // 数据位 9
     config3.stop_bits = STOP_BITS_1; // 停止位 1
     config3.bufsz = 128;             // 修改缓冲区 buff size 为 128
